@@ -1,21 +1,27 @@
 import React from "react";
 import {addMessActionCreater, changeMessActionCreater} from '../../redux/MessReducer';
+import StoreContext from "../../redux/StoreContext";
 import Dialogs from "./Dialogs";
 // import star from '../../img/star.svg';
 
-const DialogsContainer = ({data, dataMess, dispatch, newMessage}) => {
-    
-const addValContainer = () => {
-  dispatch(addMessActionCreater());
-}
-
-const givValContainer = (text) => {
-  dispatch(changeMessActionCreater(text));
-}
+const DialogsContainer = () => {
 
   return (
-    <Dialogs addValContainer={addValContainer} givValContainer={givValContainer}
-    data={data} dataMess={dataMess} newMessage={newMessage}/>
+    <StoreContext.Consumer> 
+      { store => {
+      let state = store.getState();
+      const addValContainer = () => {
+          store.dispatch(addMessActionCreater());
+        }
+        
+      const givValContainer = (text) => {
+          store.dispatch(changeMessActionCreater(text));
+        }
+      return  <Dialogs addValContainer={addValContainer} givValContainer={givValContainer}
+        data={state.messages.data} dataMess={state.messages.dataMess} newMessage={state.messages.newMessage}/> }
+     }
+    </StoreContext.Consumer>
+
   );
 };
 

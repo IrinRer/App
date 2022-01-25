@@ -23,10 +23,8 @@ const App = ({state, dispatch}) => {
       </div>
        <div className='wrapper__content'>
        <Routes>
-           <Route path='/Profile' element={<Profile dataPost={state.profile.dataPost} dispatch={dispatch} 
-           newPost={state.profile.newPost}/>}/>
-           <Route path='/dialogs/*' element={<DialogsContainer data={state.messages.data} dataMess={state.messages.dataMess} 
-           dispatch={dispatch} newMessage={state.messages.newMessage}/>}/>
+           <Route path='/Profile' element={<Profile/>}/>
+           <Route path='/dialogs/*' element={<DialogsContainer/>}/>
            <Route path='/news' element={<News/>}/>
            <Route path='/music' element={<Music/>}/>
            <Route path='/setting' element={<Setting/>}/>
