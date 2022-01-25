@@ -5,8 +5,8 @@ import Message from "./Messages/Message";
 import {addMessActionCreater, changeMessActionCreater} from '../../redux/MessReducer';
 // import star from '../../img/star.svg';
 
-const Dialogs = ({data, dataMess, dispatch, newMessage}) => {
-
+const Dialogs = ({data, dataMess, addValContainer, givValContainer, newMessage}) => {
+  debugger;
   const dataElement = data.map( item => {
      return (
          <DialogItem name = {item.name} key = {item.id} id={item.id}/>
@@ -22,12 +22,12 @@ const Dialogs = ({data, dataMess, dispatch, newMessage}) => {
 
 const addVal = (e) => {
   e.preventDefault();
-  dispatch(addMessActionCreater());
+  addValContainer();
 }
 
 const givVal = (e) => {
   const text = e.target.value;
-  dispatch(changeMessActionCreater(text));
+  givValContainer(text);
 }
 
   return (

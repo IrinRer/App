@@ -3,22 +3,23 @@ import classes from './MyPost.module.css';
 import Post from './post/Post';
 import {addPostActionCreater, changePostActionCreater} from '../../redux/ProfileReducer';
 
-const MyPost = ({dataPost, dispatch, newPost }) => {
+const MyPost = ({dataPost, newPost, addPost, updateNewPost}) => {
  const postElement = dataPost.map(item => {
     return (
     <Post post = {item.post} like = {item.like} key = {item.id}/>
     );
  });
 
- const newPostElement = React.createRef();
-
+ const newPostElement = React.createRef(); 
 const onAddPost = () => {
-    dispatch(addPostActionCreater());
+    addPost();
+    // dispatch(addPostActionCreater());
 };
 
 const onChangePost = () => {
     const text = newPostElement.current.value;
-    dispatch(changePostActionCreater(text));
+    // dispatch(changePostActionCreater(text));
+    updateNewPost(text);
 }
     return (
         <div className={classes.post}>

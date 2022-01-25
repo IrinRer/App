@@ -4,16 +4,15 @@ import './App.css';
 import Header from './components/header/Header';
 import Nav from './components/nav/Nav';
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/dialogs/Dialogs';
 import News from './components/news/News';
 import Music from './components/music/Music';
 import Setting from './components/setting/Setting';
 import Friends from './components/Profile/friends/Friends';
+import DialogsContainer from './components/dialogs/DialogsContainer';
 
 
 
 const App = ({state, dispatch}) => {
-    debugger;
   return (
   <BrowserRouter>
    <div className='wrapper'>
@@ -26,7 +25,7 @@ const App = ({state, dispatch}) => {
        <Routes>
            <Route path='/Profile' element={<Profile dataPost={state.profile.dataPost} dispatch={dispatch} 
            newPost={state.profile.newPost}/>}/>
-           <Route path='/dialogs/*' element={<Dialogs data={state.messages.data} dataMess={state.messages.dataMess} 
+           <Route path='/dialogs/*' element={<DialogsContainer data={state.messages.data} dataMess={state.messages.dataMess} 
            dispatch={dispatch} newMessage={state.messages.newMessage}/>}/>
            <Route path='/news' element={<News/>}/>
            <Route path='/music' element={<Music/>}/>
