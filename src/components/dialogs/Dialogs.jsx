@@ -6,10 +6,9 @@ import {addMessActionCreater, changeMessActionCreater} from '../../redux/MessRed
 // import star from '../../img/star.svg';
 
 const Dialogs = ({data, dataMess, addValContainer, givValContainer, newMessage}) => {
-  debugger;
   const dataElement = data.map( item => {
      return (
-         <DialogItem name = {item.name} key = {item.id} id={item.id}/>
+         <DialogItem name = {item.name} key = {item.id}/>
      );
   });
 

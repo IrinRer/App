@@ -11,22 +11,19 @@ const MyPost = ({dataPost, newPost, addPost, updateNewPost}) => {
     );
  });
 
- const newPostElement = React.createRef(); 
 const onAddPost = () => {
     addPost();
-    // dispatch(addPostActionCreater());
 };
 
-const onChangePost = () => {
-    const text = newPostElement.current.value;
-    // dispatch(changePostActionCreater(text));
+const onChangePost = (e) => {
+    const text = e.target.value;
     updateNewPost(text);
 }
     return (
         <div className={classes.post}>
                 <h3>My posts</h3>
                 <div className={classes.create__new__post}>
-                    <textarea ref={newPostElement} onChange={onChangePost} value={newPost}/>
+                    <textarea onChange={onChangePost} value={newPost}/>
                     <button onClick={onAddPost}>Add post</button>
                 </div>
                 {postElement}
