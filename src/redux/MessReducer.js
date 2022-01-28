@@ -1,5 +1,3 @@
-import { compose } from "redux";
-
 const ADD_MESS = "ADD-MESS";
 const CHANGE_NEW_MESS = "CHANGE-NEW-MESS";
 
@@ -30,7 +28,7 @@ const initionState = {
 
 export const MessReducer = (state = initionState, action) => {
     switch (action.type) {
-    case "ADD-MESS": 
+    case ADD_MESS: 
         let newMess = {
           id: ++i,
           mess: state.newMessage,
@@ -44,7 +42,7 @@ export const MessReducer = (state = initionState, action) => {
 
       
 
-      case "CHANGE-NEW-MESS": 
+      case CHANGE_NEW_MESS: 
         return {
           ...state, 
           newMessage: action.changeMess

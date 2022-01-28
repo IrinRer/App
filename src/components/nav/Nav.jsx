@@ -18,6 +18,9 @@ const Nav = () => {
             <div className={classes.wrapper__item}>
                  <NavLink to='/setting' className={classes.item_link}>Setting</NavLink>
             </div>
+            <div className ={classes.wrapper__item}>
+                 <NavLink to='/users' className={classes.item_link}>Find users</NavLink>
+            </div>
       </nav>
     );
 }

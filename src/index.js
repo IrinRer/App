@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from '././redux/reduxStore'; // данные 
+import store from '././redux/reduxStore';
 import './index.css';
 import App from './App';
 
@@ -15,7 +15,6 @@ import App from './App';
     document.getElementById('root')
   );
 
-// state = {store.getState()} dispatch={store.dispatch.bind(store)}
 
 
 
