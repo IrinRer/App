@@ -6,9 +6,9 @@ import * as axios from "axios";
 const Users = ({ users, followed, setUser }) => {
   if (users.length === 0) {
     axios
-      .get("https://gateway.marvel.com:443/v1/public/characters?limit=9&offset=210&apikey=6ca5ae70a337e9cd63b6cd813ca09821")
+      .get("https://social-network.samuraijs.com/api/1.0/users")
       .then((response) => {
-       setUser(response.data.data.results);
+       setUser(response.data.items);
       });
   }
   const element = users.map((item) => {
@@ -16,8 +16,7 @@ const Users = ({ users, followed, setUser }) => {
     return (
       <div key={item.id} className={classes.wrapper}>
         <div className={classes.wrapper__img}>
-          {/* <img src={item.thumbnail != null ? item.thumbnail : avatar}/> */}
-          <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`}/>
+          <img src={item.photos.small != null ? item.photos.small : avatar}/>
           <button onClick={() => followed(item.id)}>
             {item.followed ? "Follow" : "Unfollow"} 
           </button>
