@@ -7,8 +7,9 @@ import {addMessActionCreater, changeMessActionCreater} from '../../redux/MessRed
 
 const Dialogs = ({data, dataMess, addValContainer, givValContainer, newMessage}) => {
   const dataElement = data.map( item => {
+    debugger;
      return (
-         <DialogItem name = {item.name} key = {item.id}/>
+         <DialogItem name = {item.name} key = {item.id} id={item.id}/>
      );
   });
 

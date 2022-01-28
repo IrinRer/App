@@ -13,6 +13,7 @@
 
 .wrapper__content {
   grid-area: m;
+  padding: 30px 100px 0px 30px;
 }
 
 .wrapper__side {
