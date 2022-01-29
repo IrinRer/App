@@ -6,12 +6,12 @@ let i = 3;
 
 let initState = {
     users: [
-        {id: 1, name: 'Catelyn Stark', status: 'A woman can rule as wisely as a man.', 
-        country: 'Seven Kingdoms', city:'Riverrun', followed: true, thumbnail: null},
-        {id: 2, name: 'Daenerys Targaryen', status: 'If I look back I am lost.',
-        country: 'Essos', city:'Meereen', followed: false, thumbnail: null},
-        {id: 3, name: 'Tyrion Lannister', status: `All dwarfs are bastards in their father's eyes`,
-        country: 'Seven Kingdoms', city:`King's Landing`, followed: false, thumbnail: null}
+        // {id: 1, name: 'Catelyn Stark', status: 'A woman can rule as wisely as a man.', 
+        // country: 'Seven Kingdoms', city:'Riverrun', followed: true, thumbnail: null},
+        // {id: 2, name: 'Daenerys Targaryen', status: 'If I look back I am lost.',
+        // country: 'Essos', city:'Meereen', followed: false, thumbnail: null},
+        // {id: 3, name: 'Tyrion Lannister', status: `All dwarfs are bastards in their father's eyes`,
+        // country: 'Seven Kingdoms', city:`King's Landing`, followed: false, thumbnail: null}
     ]
 }
 
