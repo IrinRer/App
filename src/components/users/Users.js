@@ -4,17 +4,20 @@ import avatar from "./img/atomic.png";
 import * as axios from "axios";
 
 const Users = ({ users, followed, setUser }) => {
-  if (users.length === 0) {
-    axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
-      .then((response) => {
-       setUser(response.data.items);
-      });
-  }
+  let getUsers = () => {
+    if (users.length === 0) {
+      axios
+        .get("https://social-network.samuraijs.com/api/1.0/users")
+        .then((response) => {
+         setUser(response.data.items);
+        });
+    }
+  } 
   const element = users.map((item) => {
       debugger;
     return (
       <div key={item.id} className={classes.wrapper}>
+        <button onClick={getUsers}></button>
         <div className={classes.wrapper__img}>
           <img src={item.photos.small != null ? item.photos.small : avatar}/>
           <button onClick={() => followed(item.id)}>
