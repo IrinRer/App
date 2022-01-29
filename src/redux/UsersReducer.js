@@ -1,5 +1,4 @@
 const FOLLOW_TOGGLE = 'FOLLOW_TOGGLE';
-// const FOLLOW_FALSE = 'FOLLOW_FALSE';
 const SET_USERS = 'SET_USERS';
 
 let i = 3;
@@ -30,18 +29,6 @@ export const UsersReducer = (state = initState, action) => {
 
        }
 
-    //    case FOLLOW_FALSE:
-    //    return {
-    //         ...state,
-    //         users: state.users.map(item => {
-    //             if(item.id === action.userId) {
-    //                 return {...item, followed: false}
-    //             }
-
-    //             return item;
-    //         })
-    //     }
-
         case SET_USERS: 
         return {
             ...state,
@@ -58,13 +45,6 @@ export const followActionCreater = (userId) => {
       userId
     };
 };
-
-// export const unfollowActionCreater = (userId) => {
-//     return {
-//       type: FOLLOW_FALSE,
-//       userId
-//     };
-// };
 
 export const setUsersActionCreater = (users) => {
     return {

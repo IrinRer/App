@@ -70,6 +70,7 @@ $cursor: pointer;
 .form {
     @include flex(row, left, center);
     margin-bottom: 40px;
+    margin-top: 20px;
 
     input {
         @include size(400px, 30px);

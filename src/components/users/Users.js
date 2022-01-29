@@ -44,4 +44,4 @@ const Users = ({ users, followed, setUser }) => {
   );
 };
 
-export default Users;
+
