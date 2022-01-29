@@ -1,17 +1,13 @@
 const FOLLOW_TOGGLE = 'FOLLOW_TOGGLE';
 const SET_USERS = 'SET_USERS';
-
-let i = 3;
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_COUNT = 'SET_COUNT';
 
 let initState = {
-    users: [
-        // {id: 1, name: 'Catelyn Stark', status: 'A woman can rule as wisely as a man.', 
-        // country: 'Seven Kingdoms', city:'Riverrun', followed: true, thumbnail: null},
-        // {id: 2, name: 'Daenerys Targaryen', status: 'If I look back I am lost.',
-        // country: 'Essos', city:'Meereen', followed: false, thumbnail: null},
-        // {id: 3, name: 'Tyrion Lannister', status: `All dwarfs are bastards in their father's eyes`,
-        // country: 'Seven Kingdoms', city:`King's Landing`, followed: false, thumbnail: null}
-    ]
+    users: [],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currenPage: 1
 }
 
 export const UsersReducer = (state = initState, action) => {
@@ -32,23 +28,50 @@ export const UsersReducer = (state = initState, action) => {
         case SET_USERS: 
         return {
             ...state,
-            users: [...state.users, ...action.users]
+            users: action.users
         }
+
+        case SET_CURRENT_PAGE: 
+        return {
+            ...state,
+            currenPage: action.currenPage
+        }
+
+        case SET_COUNT: 
+        return {
+            ...state,
+            totalUsersCount: action.totalUsersCount
+        }
+
        default: 
        return state;
    }
 }
 
-export const followActionCreater = (userId) => {
+export const followActionCreater = userId => {
     return {
       type: FOLLOW_TOGGLE,
       userId
     };
 };
 
-export const setUsersActionCreater = (users) => {
+export const setUsersActionCreater = users => {
     return {
         type: SET_USERS,
         users
     }
-}
+};
+
+export const setCurrentActionCreater = currenPage => {
+    return {
+        type: SET_CURRENT_PAGE,
+        currenPage
+    }
+};
+
+export const setUserCountActionCreater = totalUsersCount => {
+    return {
+        type: SET_COUNT,
+        totalUsersCount
+    }
+};

@@ -1,19 +1,24 @@
 import { connect } from "react-redux";
-import {followActionCreater, setUsersActionCreater} from '../../redux/UsersReducer';
+import {followActionCreater, setUsersActionCreater, 
+setCurrentActionCreater, setUserCountActionCreater} from '../../redux/UsersReducer';
 import UsersC from "./UsersC";
 
 
 let mapStateToProps = (state) => {
     return {
-      users: state.users.users
+      users: state.users.users,
+      pageSize: state.users.pageSize,
+      totalUsersCount: state.users.totalUsersCount,
+      currenPage: state.users.currenPage
     }
   };
   
   let mapDispathToProps = (dispatch) => {
     return {
       followed: id => dispatch(followActionCreater(id)),
-    //   unfollowed: id => dispatch(unfollowActionCreater(id)),
-      setUser: (users) => dispatch(setUsersActionCreater(users))
+      setUser: users => dispatch(setUsersActionCreater(users)),
+      setPage: page => dispatch(setCurrentActionCreater(page)),
+      setUserCount: count => dispatch(setUserCountActionCreater(count))
     }
   };
   

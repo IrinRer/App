@@ -5,18 +5,43 @@ import img from "./img/search.svg";
 import avatar from "./img/atomic.png";
 
 class UsersC extends Component {
+  componentDidMount() {
+    axios
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currenPage}&
+            count=${this.props.pageSize}`
+      )
+      .then((response) => {
+        this.props.setUser(response.data.items);
+        this.props.setUserCount(response.data.totalCount);
+      });
+  }
 
-componentDidMount(){
-          axios
-            .get("https://social-network.samuraijs.com/api/1.0/users")
-            .then((response) => {
-              this.props.setUser(response.data.items);
-            });
-};
+  onPageChange = (p) => {
+    this.props.setPage(p);
+    axios
+    .get(
+      `https://social-network.samuraijs.com/api/1.0/users?page=${p}&
+          count=${this.props.pageSize}`
+    )
+    .then((response) => {
+      this.props.setUser(response.data.items);
+    });
+  }
 
-render() {
-    const { users, followed } = this.props;
+  render() {
+    const { users, followed, pageSize, totalUsersCount, currenPage, setPage, } = this.props;
+    let pageCount = Math.ceil(totalUsersCount / pageSize);
+    let pagesArr = [];
+
+    for (let i = 1; i <= pageCount; i++) {
+      if(i < 10) {
+      pagesArr.push(i);
+      }
+    }
+
     const element = users.map((item) => {
+      debugger;
       return (
         <div key={item.id} className={classes.wrapper}>
           <div className={classes.wrapper__img}>
@@ -38,6 +63,15 @@ render() {
 
     return (
       <>
+        {pagesArr.map((item) => {
+          return (
+            <span
+              className={currenPage === item ? classes.currenPage : null} 
+              onClick={() => {this.onPageChange(item)}}>
+              {item}
+            </span>
+          );
+        })}
         <form className={classes.form}>
           <input type="text" placeholder="Search" />
           <button type="submit">
