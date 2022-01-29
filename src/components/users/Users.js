@@ -6,7 +6,7 @@ import * as axios from "axios";
 const Users = ({ users, followed, setUser }) => {
   if (users.length === 0) {
     axios
-      .get("https://gateway.marvel.com:443/v1/public/characters?limit=9&offset=210&apikey=6ca5ae70a337e9cd63b6cd813ca09821")
+      .get("https://gateway.marvel.com:443/v1/public/characters?limit=3&offset=210&apikey=6ca5ae70a337e9cd63b6cd813ca09821")
       .then((response) => {
        setUser(response.data.data.results);
       });
