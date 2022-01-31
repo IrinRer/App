@@ -20,7 +20,7 @@
 }
 
 $yel:#FFDC01;
-$cursor: pointer;
+$poison: #8CEB6B;
 
 .wrapper {
     @include flex(row, center);
@@ -78,5 +78,20 @@ $cursor: pointer;
 
     img {
         @include size(auto, 27px);
+    }
+}
+
+.users_button {
+    @include border(black, 3px);
+    @include font(800, 20px);
+    display: block;
+    margin: auto;
+    line-height: 35px;
+    width: 60%;
+    border-radius: 4px;
+    background-color: $poison;
+
+    &:disabled {
+        filter: brightness(80%);
     }
 }

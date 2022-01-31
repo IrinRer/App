@@ -1,25 +1,18 @@
 import classes from "./Users.module.scss";
 import img from "./img/search.svg";
 import avatar from "./img/atomic.png";
-import * as axios from "axios";
+import Spinner from "../spinner/Spinner";
 
-const Users = ({ users, followed, setUser }) => {
-  if (users.length === 0) {
-    axios
-      .get("https://gateway.marvel.com:443/v1/public/characters?limit=3&offset=210&apikey=6ca5ae70a337e9cd63b6cd813ca09821")
-      .then((response) => {
-       setUser(response.data.data.results);
-      });
-  }
+const Users = ({users, followed, load, onChange, disabled}) => {
+  debugger;
   const element = users.map((item) => {
-      debugger;
     return (
       <div key={item.id} className={classes.wrapper}>
         <div className={classes.wrapper__img}>
-          {/* <img src={item.thumbnail != null ? item.thumbnail : avatar}/> */}
+          {/* <img src={item.photos.small != null ? item.photos.small : avatar} /> */}
           <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`}/>
           <button onClick={() => followed(item.id)}>
-            {item.followed ? "Follow" : "Unfollow"} 
+            {item.followed ? "Follow" : "Unfollow"}
           </button>
         </div>
         <div className={classes.wrapper__inf}>
@@ -40,9 +33,12 @@ const Users = ({ users, followed, setUser }) => {
           <img src={img} alt="icon search" />
         </button>
       </form>
-      {element}
+      {load ? <Spinner/> : element}
+      <button onClick={onChange} className={classes.users_button} disabled={disabled}>
+        Load more
+      </button> 
     </>
   );
-};
+}
 
 export default Users;
