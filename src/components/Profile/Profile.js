@@ -1,15 +1,14 @@
-import MyPost from '../myPost/MyPost';
 import MyPostContainer from '../myPost/MyPostContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 // import pattern from '/Devel/js/react/react-1/my-app/src/img/pattern2.svg';
 
 
 
-const Profile = (props) => {
+const Profile = ({profile}) => {
     return (
         <div>
-            <ProfileInfo/>
-            <MyPostContainer store={props}/>
+            <ProfileInfo profile={profile}/>
+            <MyPostContainer/>
        </div>
     );
 };

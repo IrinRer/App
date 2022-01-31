@@ -1,87 +1,88 @@
-@mixin flex($dir, $posAl: left, $posJus: left, $displ: flex){
-    display: $displ;
-    flex-direction: $dir;
-    align-items: $posAl;
-    justify-content: $posJus;
+@mixin flex($dir, $posAl: left, $posJus: left, $displ: flex) {
+  display: $displ;
+  flex-direction: $dir;
+  align-items: $posAl;
+  justify-content: $posJus;
 }
 
-@mixin  size($width, $height) {
-    width: $width;
-    height: $height;
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
 }
 
 @mixin border($col, $wid, $type: solid) {
-    border: $col $wid $type;
+  border: $col $wid $type;
 }
 
 @mixin font($weight, $size) {
-    font-weight: $weight;
-    font-size: $size;
+  font-weight: $weight;
+  font-size: $size;
 }
 
-$yel:#FFDC01;
+$yel: #ffdc01;
 $cursor: pointer;
 
 .wrapper {
-    @include flex(row, center);
-    margin-bottom: 4%;
+  @include flex(row, center);
+  margin-bottom: 4%;
 }
 
 .wrapper__img {
-    @include flex(column);
+  @include flex(column);
 
-    img {
-        @include size(100px, 100px);
-       }
+  img {
+    @include size(100px, 100px);
+  }
 
-    button {
-       @include border(black, 3px);
-       @include font(700, 16px);
-       border-radius: 4px;
-       background-color: $yel;
-       margin-top: 10px;
-       line-height: 25px;
-    }
+  button {
+    @include border(black, 3px);
+    @include font(700, 16px);
+    border-radius: 4px;
+    background-color: $yel;
+    margin-top: 10px;
+    line-height: 25px;
+  }
 }
 
 .wrapper__inf {
-    width: 70%;
+  width: 70%;
 
-    h3 {
-        margin: 0 0 0 15px;
+  h3 {
+    margin: 0 0 0 15px;
 
-        &:first-child {
-            font-size: 20px;
-        }
-
-        &:nth-child(2), &:nth-child(3)  {
-            text-align: right;
-            font-size: 16px;
-        }
+    &:first-child {
+      font-size: 20px;
     }
 
-    p {
-        font-size: 16px;
-        margin-left: 15px;
-        margin-top: 0;
+    &:nth-child(2),
+    &:nth-child(3) {
+      text-align: right;
+      font-size: 16px;
     }
+  }
+
+  p {
+    font-size: 16px;
+    margin-left: 15px;
+    margin-top: 0;
+  }
 }
 
 .form {
-    @include flex(row, left, center);
-    margin-bottom: 40px;
-    margin-top: 20px;
+  @include flex(row, left, center);
+  margin-bottom: 40px;
+  margin-top: 20px;
 
-    input {
-        @include size(400px, 30px);
-        @include font(200, 16px);
-    }
+  input {
+    @include size(400px, 30px);
+    @include font(200, 16px);
+  }
 
-    img {
-        @include size(auto, 27px);
-    }
+  img {
+    @include size(auto, 27px);
+  }
 }
 
 .currenPage {
-    font-weight: 900;
+  font-weight: 900;
 }

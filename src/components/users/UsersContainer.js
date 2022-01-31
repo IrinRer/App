@@ -2,11 +2,11 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import * as axios from "axios";
 import {
-  followActionCreater,
-  setUsersActionCreater,
-  setCurrentActionCreater,
-  setUserCountActionCreater,
-  loadToggleActionCreater
+  followed,
+  setUser,
+  setPage,
+  setUserCount,
+  loadToggle
 } from "../../redux/UsersReducer";
 import Users from "./Users";
 import classes from "./Users.module.scss";
@@ -69,16 +69,7 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispathToProps = (dispatch) => {
-  return {
-    followed: (id) => dispatch(followActionCreater(id)),
-    setUser: (users) => dispatch(setUsersActionCreater(users)),
-    setPage: (page) => dispatch(setCurrentActionCreater(page)),
-    setUserCount: (count) => dispatch(setUserCountActionCreater(count)),
-    loadToggle: (load) => dispatch(loadToggleActionCreater(load))
-  };
-};
-
-const UsersContainer = connect(mapStateToProps, mapDispathToProps)(UsersAPI);
+const UsersContainer = connect(mapStateToProps, { followed, setUser, setPage,
+  setUserCount, loadToggle})(UsersAPI);
 
 export default UsersContainer;
