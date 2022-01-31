@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 import './App.css';
 import Header from './components/header/Header';
 import Nav from './components/nav/Nav';
@@ -10,6 +10,7 @@ import Friends from './components/Profile/friends/Friends';
 import DialogsContainer from './components/dialogs/DialogsContainer';
 import UsersContainer from './components/users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
+import IdUserProfile from './components/idUser/IdUserProfile';
 
 
 
@@ -24,12 +25,13 @@ const App = ({state, dispatch}) => {
       </div>
        <div className='wrapper__content'>
        <Routes>
-           <Route path='/Profile/*' element={<ProfileContainer/>}/>
+           <Route path='/Profile' element={<ProfileContainer/>}/>
+           <Route path='/Profile/:id' element={<IdUserProfile/>}/>
            <Route path='/dialogs/*' element={<DialogsContainer/>}/>
            <Route path='/news' element={<News/>}/>
            <Route path='/music' element={<Music/>}/>
            <Route path='/setting' element={<Setting/>}/>
-           <Route path='/users' element={<UsersContainer/>}/>
+           <Route path='/users' element={<UsersContainer/>}/> 
        </Routes>
       </div>    
   </div>
