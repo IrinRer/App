@@ -85,7 +85,6 @@ export const setLoadActionCreater = bool => {
 };
 
 export const setDisabledActionCreater = bool => {
-    debugger
     return {
         type: SET_DISABLED,
         disabled: bool

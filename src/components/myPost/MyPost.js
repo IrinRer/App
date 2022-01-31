@@ -1,10 +1,8 @@
 import React from 'react';
 import classes from './MyPost.module.css';
 import Post from './post/Post';
-import {addPostActionCreater, changePostActionCreater} from '../../redux/ProfileReducer';
 
 const MyPost = ({dataPost, newPost, addPost, updateNewPost}) => {
-  debugger;
  const postElement = dataPost.map(item => {
     return (
     <Post post = {item.post} like = {item.like} key = {item.id}/>

@@ -2,15 +2,17 @@ import classes from "./Users.module.scss";
 import img from "./img/search.svg";
 import avatar from "./img/atomic.png";
 import Spinner from "../spinner/Spinner";
+import { NavLink } from "react-router-dom";
 
 const Users = ({users, followed, load, onChange, disabled}) => {
-  debugger;
   const element = users.map((item) => {
     return (
       <div key={item.id} className={classes.wrapper}>
         <div className={classes.wrapper__img}>
           {/* <img src={item.photos.small != null ? item.photos.small : avatar} /> */}
-          <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`}/>
+          <NavLink to={`/Profile/${item.id}`}>
+            <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`}/>
+          </NavLink>
           <button onClick={() => followed(item.id)}>
             {item.followed ? "Follow" : "Unfollow"}
           </button>

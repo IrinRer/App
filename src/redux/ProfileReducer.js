@@ -1,7 +1,6 @@
-import { compose } from "redux";
-
 const ADD_POST = "ADD-POST";
 const CHANGE_NEW_POST = "CHANGE-NEW-POST";
+const SET_PROFILE = 'SET_PROFILE';
 
 let i = 4;
 let initionState = { 
@@ -11,11 +10,12 @@ let initionState = {
     { id: 3, post: "its my first post", like: 11 },
   ],
   newPost: "",
+  profile: null
 };
 
 const ProfileReducer = (state = initionState, action) => {
         switch (action.type) {
-          case "ADD-POST": 
+          case ADD_POST: 
             let newPost = {
               id: ++i,
               post: state.newPost,
@@ -30,11 +30,18 @@ const ProfileReducer = (state = initionState, action) => {
           
           
     
-          case "CHANGE-NEW-POST": 
-            return {...state,
-            newPost: action.changePost}
+          case CHANGE_NEW_POST: 
+            return {
+            ...state,
+            newPost: action.changePost
+          };
           
-            
+          case SET_PROFILE: 
+          return {
+            ...state,
+            profile: action.profile
+          };
+           
           default: 
             return state;
     }
@@ -47,10 +54,17 @@ export const addPostActionCreater = () => {
     };
   };
   
-  export const changePostActionCreater = (text) => {
+  export const changePostActionCreater = text => {
     return {
       type: CHANGE_NEW_POST,
       changePost: text,
+    };
+  };
+
+  export const setProfile = profile => {
+    return {
+      type: SET_PROFILE,
+      profile
     };
   };
 
