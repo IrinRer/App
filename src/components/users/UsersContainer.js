@@ -18,7 +18,7 @@ class UsersAPI extends Component {
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currenPage}&
-            count=${this.props.pageSize}`
+            count=${this.props.pageSize}`, {withCredentials: true}
       )
       .then((response) => {
         this.props.loadToggle(false)
@@ -33,7 +33,7 @@ class UsersAPI extends Component {
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${p}&
-          count=${this.props.pageSize}`
+          count=${this.props.pageSize}`, {withCredentials: true}
       )
       .then((response) => {
         this.props.loadToggle(false);
@@ -65,7 +65,7 @@ let mapStateToProps = (state) => {
     pageSize: state.users.pageSize,
     totalUsersCount: state.users.totalUsersCount,
     currenPage: state.users.currenPage,
-    isLoad: state.users.isLoad,
+    isLoad: state.users.isLoad
   };
 };
 

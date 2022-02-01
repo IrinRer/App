@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 import './App.css';
-import Header from './components/header/Header';
 import Nav from './components/nav/Nav';
 import News from './components/news/News';
 import Music from './components/music/Music';
@@ -11,14 +10,15 @@ import DialogsContainer from './components/dialogs/DialogsContainer';
 import UsersContainer from './components/users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import IdUserProfile from './components/idUser/IdUserProfile';
+import HeaderContainer from './components/header/HeaderContainer';
 
 
 
-const App = ({state, dispatch}) => {
+const App = ({state}) => {
   return (
   <BrowserRouter>
    <div className='wrapper'>
-      <Header/>
+      <HeaderContainer/>
       <div className='wrapper__side'>
           <Nav/>
           <Friends dataFriend={state.sidebar.friends}/>

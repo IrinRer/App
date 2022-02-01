@@ -19,7 +19,8 @@ export const UsersReducer = (state = initState, action) => {
         ...state,
         users: state.users.map((item) => {
           if (item.id === action.userId) {
-            return { ...item, followed: !item.followed };
+            debugger;
+            return { ...item, followed: !item.followed};
           }
 
           return item;

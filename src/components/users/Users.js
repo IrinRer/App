@@ -1,3 +1,4 @@
+import * as axios from "axios";
 import classes from "./Users.module.scss";
 import img from "./img/search.svg";
 import avatar from "./img/atomic.png";
@@ -15,7 +16,6 @@ const Users = ({
   let pagesArr = [];
 
   for (let i = 1; i <= pageCount; i++) {
-    debugger;
     if (i < 10) {
       pagesArr.push(i);
     }
@@ -28,7 +28,22 @@ const Users = ({
             <img src={item.photos.small != null ? item.photos.small : avatar} />
             {/* <img src={avatar} /> */}
           </NavLink>
-          <button onClick={() => followed(item.id)}>
+          <button onClick={() => {
+           axios
+           .post(
+             `https://social-network.samuraijs.com/api/1.0/follow/${item.id}`, null,
+             {withCredentials: true,
+             headers: {
+               'API-KEY': '10da0bdf-c21e-4c14-a26b-7b313ec226b3'
+             }
+             }
+           )
+           .then((response) => {
+               followed(item.id);
+               console.log(item.followed);
+             })
+          }
+          }>
             {item.followed ? "Follow" : "Unfollow"}
           </button>
         </div>
@@ -50,9 +65,7 @@ const Users = ({
             className={currenPage === item ? classes.currenPage : null}
             onClick={() => {
               onPageChange(item);
-            }}
-            key={i}
-          >
+            }} key={i}>
             {item}
           </span>
         );

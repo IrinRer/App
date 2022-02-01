@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import * as axios from "axios";
 import {setProfile} from '../../redux/ProfileReducer';
 import Profile from './Profile';
-import IdUserProfile from '../idUser/IdUserProfile';
 
 class ProfileContainer extends Component {
     componentDidMount() {
