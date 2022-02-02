@@ -20,7 +20,7 @@
 }
 
 $yel: #ffdc01;
-$cursor: pointer;
+$poison: #8ceb6b;
 
 .wrapper {
   @include flex(row, center);
@@ -70,8 +70,7 @@ $cursor: pointer;
 
 .form {
   @include flex(row, left, center);
-  margin-bottom: 40px;
-  margin-top: 20px;
+  margin: 30px 30px;
 
   input {
     @include size(400px, 30px);
@@ -83,6 +82,17 @@ $cursor: pointer;
   }
 }
 
-.currenPage {
-  font-weight: 900;
+.users_button {
+  @include border(black, 3px);
+  @include font(800, 20px);
+  display: block;
+  margin: auto;
+  line-height: 35px;
+  width: 60%;
+  border-radius: 4px;
+  background-color: $poison;
+
+  &:disabled {
+    filter: brightness(80%);
+  }
 }

@@ -1,60 +1,33 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import * as axios from "axios";
 import {
   followed,
-  setUser,
-  setPage,
-  setUserCount,
-  loadToggle
+  getUsersButton,
+  getUsers,
+  followThunk 
 } from "../../redux/UsersReducer";
 import Users from "./Users";
-import classes from "./Users.module.scss";
-import Spinner from "../spinner/Spinner";
 
 class UsersAPI extends Component {
   componentDidMount() {
-    this.props.loadToggle(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currenPage}&
-            count=${this.props.pageSize}`, {withCredentials: true}
-      )
-      .then((response) => {
-        this.props.loadToggle(false)
-        this.props.setUser(response.data.items);
-        this.props.setUserCount(response.data.totalCount);
-      });
+    this.props.getUsers(this.props.offset);
   }
 
-  onPageChange = (p) => {
-    this.props.setPage(p);
-    this.props.loadToggle(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${p}&
-          count=${this.props.pageSize}`, {withCredentials: true}
-      )
-      .then((response) => {
-        this.props.loadToggle(false);
-        this.props.setUserCount(response.data.totalCount);
-        this.props.setUser(response.data.items);
-      });
+  onChange = () => {
+    this.props.getUsersButton(this.props.offset);
   };
 
   render() {
     return (
-      <>
-        {this.props.isLoad ? <Spinner className={classes.load}/>:  <Users
-          users={this.props.users}
-          followed={this.props.followed}
-          pageSize={this.props.pageSize}
-          totalUsersCount={this.props.totalUsersCount}
-          currenPage={this.props.currenPage}
-          onPageChange={this.onPageChange}
-        />}
-       
-      </>
+      <Users
+        users={this.props.users}
+        followed={this.props.followed}
+        offset={this.props.offset}
+        load={this.props.load}
+        disabled={this.props.disabled}
+        onChange={this.onChange}
+        followThunk = {this.props.followThunk}
+      />
     );
   }
 }
@@ -62,14 +35,17 @@ class UsersAPI extends Component {
 let mapStateToProps = (state) => {
   return {
     users: state.users.users,
-    pageSize: state.users.pageSize,
-    totalUsersCount: state.users.totalUsersCount,
-    currenPage: state.users.currenPage,
-    isLoad: state.users.isLoad
+    offset: state.users.offset,
+    load: state.users.load,
+    disabled: state.users.disabled,
   };
 };
 
-const UsersContainer = connect(mapStateToProps, { followed, setUser, setPage,
-  setUserCount, loadToggle})(UsersAPI);
+const UsersContainer = connect(mapStateToProps, {
+  followed,
+  getUsers: getUsers,
+  getUsersButton: getUsersButton,
+  followThunk 
+})(UsersAPI);
 
 export default UsersContainer;

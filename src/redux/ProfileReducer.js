@@ -1,3 +1,5 @@
+import { UserApi } from "../api/Api";
+
 const ADD_POST = "ADD-POST";
 const CHANGE_NEW_POST = "CHANGE-NEW-POST";
 const SET_PROFILE = 'SET_PROFILE';
@@ -49,20 +51,28 @@ export const addPostActionCreater = () => {
     return {
       type: ADD_POST,
     };
-  };
+};
   
-  export const changePostActionCreater = text => {
+export const changePostActionCreater = text => {
     return {
       type: CHANGE_NEW_POST,
       changePost: text,
     };
-  };
+};
 
-  export const setProfile = profile => {
+export const setProfile = (profile) => {
     return {
       type: SET_PROFILE,
-      profile
+      profile,
     };
+};
+
+export const getProfileId = (id) => {
+  return (dispatch) => {
+    UserApi.profileId(id).then((data) => {
+      dispatch(setProfile(data));
+    });
   };
+}; 
 
 export default ProfileReducer;

@@ -1,15 +1,17 @@
+import { UserApi } from "../api/Api";
+
 const FOLLOW_TOGGLE = "FOLLOW_TOGGLE";
 const SET_USERS = "SET_USERS";
-const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
-const SET_COUNT = "SET_COUNT";
-const LOAD_TOGGLE = "LOAD_TOGGLE";
+const SET_OFFSET = "SET_OFFSET";
+const SET_LOAD = "SET_LOAD";
+const SET_DISABLED = "SET_DISABLED";
+const SET_NEWUSER = "SET_NEWUSER";
 
 let initState = {
   users: [],
-  pageSize: 5,
-  totalUsersCount: 0,
-  currenPage: 1,
-  isLoad: false,
+  offset: 1,
+  load: false,
+  disabled: false
 };
 
 export const UsersReducer = (state = initState, action) => {
@@ -19,8 +21,7 @@ export const UsersReducer = (state = initState, action) => {
         ...state,
         users: state.users.map((item) => {
           if (item.id === action.userId) {
-            debugger;
-            return { ...item, followed: !item.followed};
+            return { ...item, followed: !item.followed };
           }
 
           return item;
@@ -33,22 +34,28 @@ export const UsersReducer = (state = initState, action) => {
         users: action.users,
       };
 
-    case SET_CURRENT_PAGE:
+    case SET_OFFSET:
       return {
         ...state,
-        currenPage: action.currenPage,
+        offset: action.offset,
       };
 
-    case SET_COUNT:
+    case SET_NEWUSER:
       return {
         ...state,
-        totalUsersCount: action.totalUsersCount,
+        users: [...state.users, ...action.newUser],
       };
 
-    case LOAD_TOGGLE:
+    case SET_LOAD:
       return {
         ...state,
-        isLoad: action.isLoad,
+        load: action.load,
+      };
+
+    case SET_DISABLED:
+      return {
+        ...state,
+        disabled: action.disabled,
       };
 
     default:
@@ -70,23 +77,66 @@ export const setUser = (users) => {
   };
 };
 
-export const setPage = (currenPage) => {
+export const setOffset = (offset) => {
   return {
-    type: SET_CURRENT_PAGE,
-    currenPage,
+    type: SET_OFFSET,
+    offset,
   };
 };
 
-export const setUserCount = (totalUsersCount) => {
+export const setLoad = (bool) => {
   return {
-    type: SET_COUNT,
-    totalUsersCount,
+    type: SET_LOAD,
+    load: bool,
   };
 };
 
-export const loadToggle = (load) => {
+export const setDisabled = (bool) => {
   return {
-    type: LOAD_TOGGLE,
-    isLoad: load,
+    type: SET_DISABLED,
+    disabled: bool,
+  };
+};
+
+export const setNewUser = (newUser) => {
+  return {
+    type: SET_NEWUSER,
+    newUser,
+  };
+};
+
+export const getUsers = (offset) => {
+  return (dispatch) => {
+  dispatch(setLoad(true));
+  dispatch(setDisabled(true));
+
+  UserApi.getUser(offset).then((data) => {
+    dispatch(setLoad(false));
+    dispatch(setDisabled(false));
+    dispatch(setUser(data.items));
+    dispatch(setOffset(offset + 1));
+    });
+  }
+}
+
+export const getUsersButton = (offset) => {
+  return (dispatch) => {
+    dispatch(setLoad(true));
+    dispatch(setDisabled(true));
+    UserApi.getUser(offset).then((data) => {
+      dispatch(setLoad(false));
+      dispatch(setDisabled(false));
+      dispatch(setNewUser(data.items));
+      dispatch(setOffset(this.props.offset + 1));
+  });
+ }
+}
+
+
+export const followThunk = (id) => {
+  return (dispatch) => {
+    UserApi.follow(id).then((response) => {
+      dispatch(followed(id));
+    });
   };
 };

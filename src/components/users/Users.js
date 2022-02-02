@@ -1,49 +1,27 @@
-import * as axios from "axios";
 import classes from "./Users.module.scss";
 import img from "./img/search.svg";
 import avatar from "./img/atomic.png";
 import { NavLink } from "react-router-dom";
+import Spinner from "../spinner/Spinner";
 
 const Users = ({
   users,
-  followed,
-  pageSize,
-  totalUsersCount,
-  currenPage,
-  onPageChange,
+  followThunk,
+  load,
+  onChange,
+  disabled
 }) => {
-  let pageCount = Math.ceil(totalUsersCount / pageSize);
-  let pagesArr = [];
-
-  for (let i = 1; i <= pageCount; i++) {
-    if (i < 10) {
-      pagesArr.push(i);
-    }
-  }
   const element = users.map((item) => {
     return (
       <div key={item.id} className={classes.wrapper}>
         <div className={classes.wrapper__img}>
           <NavLink to={`/Profile/${item.id}`}>
             <img src={item.photos.small != null ? item.photos.small : avatar} />
-            {/* <img src={avatar} /> */}
           </NavLink>
-          <button onClick={() => {
-           axios
-           .post(
-             `https://social-network.samuraijs.com/api/1.0/follow/${item.id}`, null,
-             {withCredentials: true,
-             headers: {
-               'API-KEY': '10da0bdf-c21e-4c14-a26b-7b313ec226b3'
-             }
-             }
-           )
-           .then((response) => {
-               followed(item.id);
-               console.log(item.followed);
-             })
-          }
-          }>
+          <button
+            onClick={() => {
+              followThunk(item.id);
+            }}>
             {item.followed ? "Follow" : "Unfollow"}
           </button>
         </div>
@@ -59,24 +37,16 @@ const Users = ({
 
   return (
     <>
-      {pagesArr.map((item, i) => {
-        return (
-          <span
-            className={currenPage === item ? classes.currenPage : null}
-            onClick={() => {
-              onPageChange(item);
-            }} key={i}>
-            {item}
-          </span>
-        );
-      })}
       <form className={classes.form}>
         <input type="text" placeholder="Search" />
         <button type="submit">
           <img src={img} alt="icon search" />
         </button>
       </form>
-      {element}
+      {load ? <Spinner/> : element}
+      <button onClick={onChange} className={classes.users_button} disabled={disabled}>
+        Load more
+      </button> 
     </>
   );
 };
