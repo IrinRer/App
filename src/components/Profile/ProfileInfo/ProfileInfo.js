@@ -1,5 +1,5 @@
 import Spinner from '../../spinner/Spinner';
-import classes from './ProfileInfo.module.css';
+import classes from './ProfileInfo.module.scss';
 
 const ProfileInfo = ({profile}) => {
     if(!profile) {

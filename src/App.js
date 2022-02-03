@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import Nav from './components/nav/Nav';
 import Setting from './components/setting/Setting';
 import Friends from './components/Profile/friends/Friends';
@@ -20,7 +20,7 @@ const App = ({state}) => {
       <HeaderContainer/>
       <div className='wrapper__side'>
           <Nav/>
-          <Friends dataFriend={state.sidebar.friends}/>
+          {/* <Friends dataFriend={state.sidebar.friends}/> */}
       </div>
        <div className='wrapper__content'>
        <Routes>

@@ -5,7 +5,6 @@ import Profile from "./Profile";
 
 class ProfileContainer extends Component {
   componentDidMount() {
-    debugger;
     this.props.getProfileId(this.props.id);
   }
 

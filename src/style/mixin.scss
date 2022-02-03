@@ -1,0 +1,22 @@
+@mixin flex($dir, $posAl: left, $posJus: left, $displ: flex) {
+  display: $displ;
+  flex-direction: $dir;
+  align-items: $posAl;
+  justify-content: $posJus;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin border($col, $wid, $type: solid) {
+  border: $col $wid $type;
+}
+
+@mixin font($weight, $size) {
+  font-weight: $weight;
+  font-size: $size;
+}
+
+

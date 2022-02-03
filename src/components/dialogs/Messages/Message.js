@@ -1,4 +1,4 @@
-import classes from './../Dialogs.module.css';
+import classes from './../Dialogs.module.scss';
 
 const Message = ({ message }) => {
     return(

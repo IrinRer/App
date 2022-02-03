@@ -1,42 +1,23 @@
-@mixin flex($dir, $posAl: left, $posJus: left, $displ: flex) {
-  display: $displ;
-  flex-direction: $dir;
-  align-items: $posAl;
-  justify-content: $posJus;
-}
-
-@mixin size($width, $height) {
-  width: $width;
-  height: $height;
-}
-
-@mixin border($col, $wid, $type: solid) {
-  border: $col $wid $type;
-}
-
-@mixin font($weight, $size) {
-  font-weight: $weight;
-  font-size: $size;
-}
+@use "../../style/mixin";
 
 $yel: #ffdc01;
 $poison: #8ceb6b;
 
 .wrapper {
-  @include flex(row, center);
+  @include mixin.flex(row, center);
   margin-bottom: 4%;
 }
 
 .wrapper__img {
-  @include flex(column);
+  @include mixin.flex(column);
 
   img {
-    @include size(100px, 100px);
+    @include mixin.size(100px, 100px);
   }
 
   button {
-    @include border(black, 3px);
-    @include font(700, 16px);
+    @include mixin.border(black, 3px);
+    @include mixin.font(700, 16px);
     border-radius: 4px;
     background-color: $yel;
     margin-top: 10px;
@@ -69,22 +50,22 @@ $poison: #8ceb6b;
 }
 
 .form {
-  @include flex(row, left, center);
+  @include mixin.flex(row, left, center);
   margin: 30px 30px;
 
   input {
-    @include size(400px, 30px);
-    @include font(200, 16px);
+    @include mixin.size(400px, 30px);
+    @include mixin.font(200, 16px);
   }
 
   img {
-    @include size(auto, 27px);
+    @include mixin.size(auto, 27px);
   }
 }
 
 .users_button {
-  @include border(black, 3px);
-  @include font(800, 20px);
+  @include mixin.border(black, 3px);
+  @include mixin.font(800, 20px);
   display: block;
   margin: auto;
   line-height: 35px;

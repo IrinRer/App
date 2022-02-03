@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './MyPost.module.css';
+import classes from './MyPost.module.scss';
 import Post from './post/Post';
 
 const MyPost = ({dataPost, newPost, addPost, changePost}) => {
