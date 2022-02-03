@@ -1,5 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
+import { compose } from "redux";
+import { AuthRedirect } from "../../hoc/AuthRedirect";
 import { getProfileId } from "../../redux/ProfileReducer";
 import Profile from "./Profile";
 
@@ -15,9 +17,11 @@ class ProfileContainer extends Component {
 
 let mapStateToProps = (state) => {
   return {
-    profile: state.profile.profile,
-    isAuth: state.auth.isAuth,
+    profile: state.profile.profile
   };
 };
 
-export default connect(mapStateToProps, { getProfileId })(ProfileContainer);
+
+export default compose( connect(mapStateToProps, { getProfileId }),
+ AuthRedirect)(ProfileContainer);
+

@@ -30,10 +30,6 @@ const Dialogs = ({
     changeMess(text);
   };
 
-  if (!isAuth) {
-    return <Navigate to="/login" />;
-  }
-
   return (
     <div className={classes.wrapper}>
       <div className={classes.wrapper__dialogs}>{dataElement}</div>
