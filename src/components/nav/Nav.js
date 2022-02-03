@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import classes from './Nav.module.css';
+
 const Nav = () => {
     return (
         <nav className={classes.wrapper}>
@@ -9,12 +10,12 @@ const Nav = () => {
             <div className={classes.wrapper__item}>
                  <NavLink to='/dialogs' className={classes.item_link}>Messages</NavLink>
             </div>
-            <div className ={classes.wrapper__item}>
+            {/* <div className ={classes.wrapper__item}>
                  <NavLink to='/news' className={classes.item_link}>News</NavLink>
             </div>
             <div className={classes.wrapper__item}>
                  <NavLink to='/music' className={classes.item_link}>Music</NavLink>
-            </div>
+            </div> */}
             <div className={classes.wrapper__item}>
                  <NavLink to='/setting' className={classes.item_link}>Setting</NavLink>
             </div>

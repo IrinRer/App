@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './MyPost.module.css';
 import Post from './post/Post';
 
-const MyPost = ({dataPost, newPost, addPost, updateNewPost}) => {
+const MyPost = ({dataPost, newPost, addPost, changePost}) => {
  const postElement = dataPost.map(item => {
     return (
     <Post post = {item.post} like = {item.like} key = {item.id}/>
@@ -15,7 +15,7 @@ const onAddPost = () => {
 
 const onChangePost = (e) => {
     const text = e.target.value;
-    updateNewPost(text);
+    changePost(text);
 }
     return (
         <div className={classes.post}>

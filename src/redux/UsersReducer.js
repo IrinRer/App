@@ -127,7 +127,7 @@ export const getUsersButton = (offset) => {
       dispatch(setLoad(false));
       dispatch(setDisabled(false));
       dispatch(setNewUser(data.items));
-      dispatch(setOffset(this.props.offset + 1));
+      dispatch(setOffset(offset + 1));
   });
  }
 }

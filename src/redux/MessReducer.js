@@ -53,13 +53,13 @@ export const MessReducer = (state = initionState, action) => {
   }
 }
 
-export const addMessActionCreater = () => {
+export const addMess = () => {
     return {
       type: ADD_MESS,
     };
   };
   
-  export const changeMessActionCreater = (text) => {
+  export const changeMess = (text) => {
     return {
       type: CHANGE_NEW_MESS,
       changeMess: text,
