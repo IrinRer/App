@@ -1,5 +1,5 @@
+import { useState } from "react";
 import classes from "./Users.module.scss";
-import img from "./img/search.svg";
 import avatar from "./img/atomic.png";
 import { NavLink } from "react-router-dom";
 import Spinner from "../spinner/Spinner";
@@ -11,7 +11,15 @@ const Users = ({
   onChange,
   disabled
 }) => {
-  const element = users.map((item) => {
+
+  const [value, setValue] = useState('');
+  
+  const filtered = users.filter(item => {
+    return item.name.indexOf(value) > -1;
+  })
+ 
+
+  const element = filtered.map((item) => {
     return (
       <div key={item.id} className={classes.wrapper}>
         <div className={classes.wrapper__img}>
@@ -35,13 +43,11 @@ const Users = ({
     );
   });
 
+
   return (
     <>
       <form className={classes.form}>
-        <input type="text" placeholder="Search" />
-        <button type="submit">
-          <img src={img} alt="icon search" />
-        </button>
+        <input type="text" placeholder="Search..." onChange={(e) => setValue(e.target.value)}/> 
       </form>
       {load ? <Spinner/> : element}
       <button onClick={onChange} className={classes.users_button} disabled={disabled}>
