@@ -43,8 +43,8 @@ let mapStateToProps = (state) => {
 
 const UsersContainer = connect(mapStateToProps, {
   followed,
-  getUsers: getUsers,
-  getUsersButton: getUsersButton,
+  getUsers,
+  getUsersButton,
   followThunk 
 })(UsersAPI);
 

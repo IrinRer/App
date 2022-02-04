@@ -1,21 +1,29 @@
-import { useState } from "react";
+import { useState} from "react";
 
-const ProfileStatus = (props) => {
+const ProfileStatus = ({status, updateStatus}) => {
   const [editMode, setMode] = useState(false);
+  const [statusLocal, setStatusLocal] = useState(status);
 
   const changeMode = () => {
       setMode(!editMode);
+      updateStatus(statusLocal);
   }
+
+  const onChangeStatus = (e) => {
+    setStatusLocal(e.target.value);
+  }
+
 
   return (
     <>
       {!editMode ? (
         <div>
-          <span onClick={() => changeMode()}>{props.status}</span>
+          <span onClick={() => changeMode()}>{status || 'No status'}</span>
         </div>
       ) : (
         <div>
-          <input value={props.status} autoFocus={true} onBlur={() => changeMode()}/>
+          <input value={statusLocal} autoFocus={true} onBlur={() => changeMode()}
+          onChange={(e) => onChangeStatus(e)}/>
         </div>
       )}
     </>

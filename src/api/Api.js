@@ -23,17 +23,31 @@ export const UserApi = {
 
   follow(id) {
     return instance.post(`${baseURL}follow/${id}`);
-  },
+  }
+};
 
-  auth() {
-    return instance.get(`${baseURL}auth/me`).then((response) => {
-      return response.data;
-    });
-  },
-
+export const ProfileApi = {
   profileId(id = 2) {
     return instance.get(`${baseURL}profile/${id}`).then((response) => {
       return response.data;
     });
+  }, 
+
+  getStatus(id = 2) {
+    return instance.get(`${baseURL}profile/status/${id}`).then((response) => {
+      return response.data;
+    });
   },
+
+  updateStatus(status) {
+    return instance.put(`${baseURL}profile/status`, {status: status});
+  }
+};
+
+export const AuthApi = {
+  auth() {
+    return instance.get(`${baseURL}auth/me`).then((response) => {
+      return response.data;
+    });
+  }
 };
