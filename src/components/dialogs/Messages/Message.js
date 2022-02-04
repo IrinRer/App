@@ -1,6 +1,6 @@
 import classes from './../Dialogs.module.scss';
 
-const Message = ({ message }) => {
+const Message = ({ message, id }) => {
     return(
     <div className={classes.wrapper__message__item}>
         <span>{message}</span>

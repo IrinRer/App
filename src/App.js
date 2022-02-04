@@ -24,12 +24,12 @@ const App = ({state}) => {
       </div>
        <div className='wrapper__content'>
        <Routes>
-           <Route path='/login' element={<Login/>}/>
            <Route path='/Profile' element={<ProfileContainer/>}/>
            <Route path='/Profile/:id' element={<IdUserProfile/>}/>
            <Route path='/dialogs/*' element={<DialogsContainer/>}/>
            <Route path='/setting' element={<Setting/>}/>
            <Route path='/users' element={<UsersContainer/>}/> 
+           <Route path='/login' element={<Login/>}/>
        </Routes>
       </div>    
   </div>

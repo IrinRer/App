@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./Dialogs.module.scss";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Messages/Message";
-import { Navigate } from "react-router-dom";
 
 const Dialogs = ({
   data,
@@ -10,14 +9,13 @@ const Dialogs = ({
   addMess,
   changeMess,
   newMessage,
-  isAuth,
 }) => {
   const dataElement = data.map((item) => {
     return <DialogItem name={item.name} key={item.id} id={item.id} />;
   });
 
   const messElement = dataMess.map((item) => {
-    return <Message message={item.mess} key={item.id} />;
+    return <Message message={item.mess} key={item.id}/>;
   });
 
   const addVal = (e) => {

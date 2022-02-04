@@ -3,6 +3,7 @@ import classes from "./Header.module.scss";
 import logo from '../../img/Logo.svg';
 
 const Header = ({login, isAuth}) => {
+    console.log(`heder ${isAuth}`)
     return (
         <div className={classes.header}>
             <div className={classes.header__wrapper}>

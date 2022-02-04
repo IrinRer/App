@@ -1,8 +1,12 @@
-import { useState} from "react";
+import { useState, useEffect} from "react";
 
 const ProfileStatus = ({status, updateStatus}) => {
   const [editMode, setMode] = useState(false);
   const [statusLocal, setStatusLocal] = useState(status);
+
+  useEffect(() => {
+    setStatusLocal(status)
+  }, [status]);
 
   const changeMode = () => {
       setMode(!editMode);
