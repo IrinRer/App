@@ -121,7 +121,6 @@ export const getUsers = (offset) => {
 
 export const getUsersButton = (offset) => {
   return (dispatch) => {
-    dispatch(setLoad(true));
     dispatch(setDisabled(true));
     UserApi.getUser(offset).then((data) => {
       dispatch(setLoad(false));
