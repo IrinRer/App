@@ -10,10 +10,11 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import IdUserProfile from './components/idUser/IdUserProfile';
 import HeaderContainer from './components/header/HeaderContainer';
 import Login from './components/login/Login';
+import IdUserDialogs from './components/idUser/IdUserDialogs';
 
 
 
-const App = ({state}) => {
+const App = () => {
   return (
   <BrowserRouter>
    <div className='wrapper'>
@@ -27,6 +28,7 @@ const App = ({state}) => {
            <Route path='/Profile' element={<ProfileContainer/>}/>
            <Route path='/Profile/:id' element={<IdUserProfile/>}/>
            <Route path='/dialogs/*' element={<DialogsContainer/>}/>
+           <Route path='/dialogs/:id' element={<IdUserDialogs/>}/>
            <Route path='/setting' element={<Setting/>}/>
            <Route path='/users' element={<UsersContainer/>}/> 
            <Route path='/login' element={<Login/>}/>

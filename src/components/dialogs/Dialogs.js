@@ -2,6 +2,8 @@ import React from "react";
 import classes from "./Dialogs.module.scss";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Messages/Message";
+import Message1 from "./Messages/Messag1";
+import { Navigate } from "react-router-dom";
 
 const Dialogs = ({
   data,
@@ -9,13 +11,19 @@ const Dialogs = ({
   addMess,
   changeMess,
   newMessage,
+  userMess
 }) => {
   const dataElement = data.map((item) => {
     return <DialogItem name={item.name} key={item.id} id={item.id} />;
   });
 
   const messElement = dataMess.map((item) => {
-    return <Message message={item.mess} key={item.id}/>;
+    debugger;
+    if(+userMess === 1) {
+      return <Message1/>
+    }  else {
+      return <Message message={item.mess} key={item.id} userMess={userMess}/>
+    };
   });
 
   const addVal = (e) => {

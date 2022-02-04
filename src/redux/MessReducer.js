@@ -1,5 +1,6 @@
 const ADD_MESS = "ADD-MESS";
 const CHANGE_NEW_MESS = "CHANGE-NEW-MESS";
+const SET_USER_MESS = "SET_USER_MESS";
 
 let i = 9; 
 const initionState = {
@@ -24,6 +25,7 @@ const initionState = {
   ],
 
   newMessage: "",
+  userMess: ''
 };
 
 export const MessReducer = (state = initionState, action) => {
@@ -48,6 +50,12 @@ export const MessReducer = (state = initionState, action) => {
           newMessage: action.changeMess
         }
 
+      case SET_USER_MESS: 
+        return {
+          ...state, 
+          userMess: action.userMess
+        }
+
     default: 
         return state;
   }
@@ -57,13 +65,20 @@ export const addMess = () => {
     return {
       type: ADD_MESS,
     };
-  };
+};
   
-  export const changeMess = (text) => {
+export const changeMess = (text) => {
     return {
       type: CHANGE_NEW_MESS,
       changeMess: text,
     };
-  };
+};
+
+export const setUserMess = (id) => {
+    return {
+      type: SET_USER_MESS,
+      userMess: id
+    };
+};
 
 export default MessReducer;

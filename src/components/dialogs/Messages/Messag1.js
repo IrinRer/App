@@ -1,5 +1,5 @@
 const Message1 = () => {
-    return(
+    return (
           <h2>ДИАЛОГ</h2>
     )
 };
