@@ -1,12 +1,11 @@
+@use "../../style/mixin";
+
 .header {
   grid-area: h;
 
   .header__wrapper {
+    @include mixin.flex(row, center, space-between);
     padding: 0 20px 0px 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 
     .link {
       text-decoration: none;
@@ -18,7 +17,6 @@
   .wall {
     grid-area: w;
     height: 62px;
-    width: 100%;
     background-image: url(../../img/patter.svg);
   }
 }

@@ -1,3 +1,5 @@
+$active_color: #794efa;
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(4, minmax(100px, auto));
@@ -8,7 +10,7 @@
   'w w w w'
   'n m m m';
 
-  column-gap: 20px;
+  column-gap: 60px;
 
   .wrapper__content {
     grid-area: m;
@@ -22,7 +24,7 @@
 }
 
 a.active {
-  color: #794efa !important;
+  color: $active_color !important;
 }
 
 .active-link {

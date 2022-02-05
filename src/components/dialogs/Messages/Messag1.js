@@ -1,6 +1,6 @@
 const Message1 = () => {
     return (
-          <h2>ДИАЛОГ</h2>
+          <p>Choose who you want to start a dialogue with</p>
     )
 };
 
