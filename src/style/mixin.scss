@@ -19,4 +19,9 @@
   font-size: $size;
 }
 
+@mixin button($bord: 3px solid black, $rad: 4px) {
+ border-radius: $rad;
+ border: $bord;
+}
+
 

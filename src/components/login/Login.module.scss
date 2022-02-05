@@ -1,0 +1,56 @@
+@use "../../style/mixin";
+
+.wrapper {
+    @include mixin.border(#8CEB6B, 5px);
+    @include mixin.flex(column, center);
+    background-color: #B095FF;
+    width: 80%;
+    height: 100%;
+    margin-top: 40px;
+    border-radius: 4px;
+}
+
+.login {
+    input {
+        @include mixin.font(800, 16px);
+        @include mixin.button();
+        width: 20rem;
+        display: block;
+        margin-bottom: 5px;
+        line-height: 30px;
+    }
+}
+
+.error__mess {
+    font-style: oblique;
+    font-size: 14px;
+    margin-bottom: 3px;
+    color: white;
+}
+
+.checkbox {
+    @include mixin.flex(row, center, flex-start);
+    input {
+        width: auto;
+        margin: 0;
+        margin-right: 5px;
+    }
+}
+
+.button {
+    button {
+        @include mixin.button();
+        @include mixin.font(800, 16px);
+        width: 31%;
+        line-height: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #8CEB6B;
+
+        &:focus {
+            background-color: #B095FF;
+        }
+    }
+
+    
+}
