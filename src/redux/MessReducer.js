@@ -5,11 +5,7 @@ const SET_USER_MESS = "SET_USER_MESS";
 let i = 9; 
 const initionState = {
   data: [
-    { id: 1, name: "Eddard Stark" },
-    // { id: 2, name: "Arya Stark" },
-    // { id: 3, name: "Samuel Tarly" },
-    // { id: 4, name: "Bran Stark" },
-    // { id: 5, name: "Jeor Mormont" },
+    { id: 1, name: "Eddard Stark" }
   ],
 
   dataMess: [

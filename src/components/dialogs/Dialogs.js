@@ -1,4 +1,5 @@
 import React from "react";
+import {useMediaQuery} from '@react-hook/media-query'
 import classes from "./Dialogs.module.scss";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Messages/Message";
@@ -32,6 +33,8 @@ const Dialogs = ({
     changeMess(text);
   };
 
+  const isSmallScreen = useMediaQuery('(max-width: 600px)'); 
+
   const form = <form className={classes.wrapper__messages__add}>
                   <textarea name="messag" onChange={givVal} value={newMessage} />
                   <button onClick={addVal}>Send</button>
@@ -39,9 +42,11 @@ const Dialogs = ({
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.wrapper__dialogs}>{dataElement}</div>
+      <div className={classes.wrapper__dialogs}>
+        {dataElement}
+      </div>
       <div className={classes.wrapper__messages}>
-        {messElement[0] === undefined ? <Message1 /> : messElement}
+        {messElement[0] === undefined && !isSmallScreen ? <Message1 /> : messElement}
         {messElement[0] === undefined ? null : form}
       </div>
     </div>
