@@ -47,8 +47,9 @@
         margin-bottom: 20px;
         background-color: #8CEB6B;
 
-        &:focus {
-            background-color: #B095FF;
+        &:disabled {
+            background-color: #FF0101;
+            color: white;
         }
     }
 

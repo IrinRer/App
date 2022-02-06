@@ -12,7 +12,7 @@ const reducers = combineReducers({
     messages: MessReducer,
     sidebar: SidebarReducer,
     users: UsersReducer,
-    auth:  AutoReducer
+    auth:  AutoReducer,
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

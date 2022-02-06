@@ -20,3 +20,10 @@
     background-image: url(../../img/patter.svg);
   }
 }
+
+.deleteLogin {
+  @include mixin.button($bord: 3px solid black, $rad: 4px); 
+  color: white;
+  background-color: #FF0101;
+  margin-left: 8px;
+}
