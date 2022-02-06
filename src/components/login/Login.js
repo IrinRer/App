@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { connect } from "react-redux";
-import { Formik, Form, Field, ErrorMessage, withFormik } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import classes from "./Login.module.scss";
-import { deleteLogin, setLogin } from "../../redux/AutoReducer";
+import { setLogin } from "../../redux/AutoReducer";
 import { Navigate } from "react-router-dom";
 
 const Login = (props) => {
@@ -27,8 +27,9 @@ const Login = (props) => {
             .min(4, "Password must be at least 4 characters.")
             .required("Required"),
         })}
+
         onSubmit={(values, {setSubmitting}) => {
-          props.setLogin(values.email, values.password, values.rememberMe);
+          props.setLogin(values.email, values.password, values.rememberMe); 
           setTimeout(() => { setSubmitting(false)
         }, 500)}}
       >

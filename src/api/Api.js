@@ -47,7 +47,6 @@ export const ProfileApi = {
 export const AuthApi = {
   auth() {
     return instance.get(`${baseURL}auth/me`).then((response) => {
-      debugger;
       return response.data;
     });
   },

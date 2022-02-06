@@ -12,6 +12,10 @@ const DialogsContainer = (props) => {
     props.setUserMess(props.id);
   }, [props.id])
 
+  // useEffect(() => {
+  //   props.changeMess(props.newMessage);
+  // }, [props.newMessage])
+
   return <Dialogs data={props.data} id={props.id} dataMess={props.dataMess}
   newMessage={props.newMessage} userMess={props.userMess}
   addMess = {props.addMess} changeMess={props.changeMess} />

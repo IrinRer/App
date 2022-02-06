@@ -2,7 +2,7 @@ const ADD_MESS = "ADD-MESS";
 const CHANGE_NEW_MESS = "CHANGE-NEW-MESS";
 const SET_USER_MESS = "SET_USER_MESS";
 
-let i = 9; 
+let i = 1; 
 const initionState = {
   data: [
     { id: 1, name: "Eddard Stark" }
@@ -33,6 +33,7 @@ export const MessReducer = (state = initionState, action) => {
       
 
       case CHANGE_NEW_MESS: 
+      debugger;
         return {
           ...state, 
           newMessage: action.changeMess
