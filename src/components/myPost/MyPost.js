@@ -43,7 +43,7 @@ const MyPost = ({ dataPost, newPost, addPost, changePost }) => {
 
   return (
     <div className={classes.post}>
-      <h3>My posts</h3>
+      <h2>My posts</h2>
         <FormText />
       {postElement}
     </div>
