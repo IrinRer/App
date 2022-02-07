@@ -27,7 +27,7 @@ export const UserApi = {
 };
 
 export const ProfileApi = {
-  profileId(id = 2) {
+  profileId(id) {
     return instance.get(`${baseURL}profile/${id}`).then((response) => {
       return response.data;
     });

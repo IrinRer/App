@@ -42,14 +42,15 @@ export const setAuth = () => {
   }
 };
 
-export const setLogin = (email, password, rememberMe) => {
+export const setLogin = (email, password, rememberMe, setStatus) => {
   return (dispatch) => {
     AuthApi.login(email, password, rememberMe) 
     .then((response) => {
         if(response.data.resultCode === 0) {
-            dispatch(setAuth())
+            dispatch(setAuth(true))
+        } else {
+          setStatus({error: response.data.messages});
         }
-
     }); 
   }
 };

@@ -4,6 +4,8 @@ $active_color: #794efa;
   display: grid;
   grid-template-columns: repeat(4, minmax(100px, auto));
   grid-template-rows: repeat(3, auto);
+  // background-color: #5D5F61;
+  // color: #E1E3E6;
 
   grid-template-areas: 
   'h h h h'

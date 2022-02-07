@@ -1,79 +1,102 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useFormik } from "formik";
 import * as yup from "yup";
 import classes from "./Login.module.scss";
 import { setLogin } from "../../redux/AutoReducer";
 import { Navigate } from "react-router-dom";
 
 const Login = (props) => {
-  if(!props.isAuth) {
-  return (
-    <div className={classes.wrapper}>
-      <h1>Login in</h1>
-      <Formik
-        initialValues={{
-          email: "",
-          password: "",
-          rememberMe: false,
-        }}
-        validationSchema={yup.object({
-          email: yup
-            .string()
-            .min(4, "Login must be at least 4 characters.")
-            .required("Required"),
-          password: yup
-            .string()
-            .min(4, "Password must be at least 4 characters.")
-            .required("Required"),
-        })}
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      rememberMe: false,
+    },
+    validationSchema: yup.object({
+      email: yup.string().email().required("Required"),
+      password: yup
+        .string()
+        .min(4, "Password must be at least 4 characters.")
+        .required("Required"),
+    }),
+    onSubmit: (values, action) => {
+      props.setLogin(
+        values.email,
+        values.password,
+        values.rememberMe,
+        action.setStatus
+      );
+      action.setSubmitting(true);
+      setTimeout(() => {
+        action.setSubmitting(false);
+      }, 500);
+      setTimeout(() => {
+        action.resetForm();
+      }, 5000);
+    },
+  });
 
-        onSubmit={(values, {setSubmitting}) => {
-          props.setLogin(values.email, values.password, values.rememberMe); 
-          setTimeout(() => { setSubmitting(false)
-        }, 500)}}
-      >
-      {({ isSubmitting }) => (
-        <Form>
+  if (!props.isAuth) {
+    return (
+      <div className={classes.wrapper}>
+        <h1>Login in</h1>
+        <form onSubmit={formik.handleSubmit}>
           <div className={classes.login}>
-             <Field type="text" name="email" placeholder="Login" />
-            <ErrorMessage
-              className={classes.error__mess}
+            <input
+              type="text"
               name="email"
-              component="div"
-            /> 
-             <Field type="password" name="password" placeholder="Password" />
-            <ErrorMessage
-              className={classes.error__mess}
+              placeholder="Login"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.errors.email && formik.touched.email ? (
+              <div className={classes.error__mess}>{formik.errors.email}</div>
+            ) : null}
+            <input
+              type="password"
               name="password"
-              component="div"
-            /> 
+              placeholder="Password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+
+            {formik.errors.password && formik.touched.password ? (
+              <div className={classes.error__mess}>
+                {formik.errors.password}
+              </div>
+            ) : null}
+            {formik.status ? (
+              <div className={classes.error__mess}>{formik.status.error}</div>
+            ) : null}
+
             <div className={classes.checkbox}>
-              <Field type={"checkbox"} name="rememberMe" />
+              <input
+                type={"checkbox"}
+                name="rememberMe"
+                value={formik.values.rememberMe}
+                onChange={formik.handleChange}
+              />
               remember me
             </div>
           </div>
-            <div className={classes.button}>
-              <button disabled={isSubmitting}>Login</button>
-            </div>
-        </Form>
-      )}
-      </Formik>
-    </div>
-  )
-}
-
-else {
-  return (
-    <Navigate to={'/Profile'}/>
-  )
-}
+          <div className={classes.button}>
+            <button disabled={formik.isSubmitting}>Login</button>
+          </div>
+        </form>
+      </div>
+    );
+  } else {
+    return <Navigate to={"/Profile"} />;
+  }
 };
 
 const mapStateToProps = (state) => {
   return {
-      isAuth: state.auth.isAuth
-  }
-}
+    isAuth: state.auth.isAuth,
+  };
+};
 
-export default connect(mapStateToProps, {setLogin})(Login);
+export default connect(mapStateToProps, { setLogin })(Login);
