@@ -8,9 +8,9 @@ const SET_STATUS = "SET_STATUS";
 let i = 4;
 let initionState = {
   dataPost: [
-    { id: 1, post: "how are you?", like: 12 },
-    { id: 2, post: "im fine", like: 13 },
-    { id: 3, post: "its my first post", like: 11 },
+    { id: 1, post: "its my first post" },
+    { id: 2, post: "so tried" },
+    { id: 3, post: "its interesting" },
   ],
   newPost: "",
   profile: null,
@@ -22,8 +22,7 @@ const ProfileReducer = (state = initionState, action) => {
     case ADD_POST:
       let newPost = {
         id: ++i,
-        post: state.newPost,
-        like: Math.floor(Math.random() * 50),
+        post: state.newPost
       };
 
       return {

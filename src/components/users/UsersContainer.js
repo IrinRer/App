@@ -6,6 +6,7 @@ import {
   getUsers,
   followThunk 
 } from "../../redux/UsersReducer";
+import { getOffset, getLoad, getDisabled, getUserSuperSelector } from "../../selectors/userSelectors";
 import Users from "./Users";
 
 class UsersAPI extends Component {
@@ -32,12 +33,21 @@ class UsersAPI extends Component {
   }
 }
 
+// let mapStateToProps = (state) => {
+//   return {
+//     users: state.users.users,
+//     offset: state.users.offset,
+//     load: state.users.load,
+//     disabled: state.users.disabled,
+//   };
+// };
+
 let mapStateToProps = (state) => {
   return {
-    users: state.users.users,
-    offset: state.users.offset,
-    load: state.users.load,
-    disabled: state.users.disabled,
+    users: getUserSuperSelector(state),
+    offset: getOffset(state),
+    load: getLoad(state),
+    disabled: getDisabled(state)
   };
 };
 
