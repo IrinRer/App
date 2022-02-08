@@ -1,7 +1,7 @@
 import Spinner from "../../spinner/Spinner";
 import classes from "./ProfileInfo.module.scss";
 import ProfileStatus from "./ProfileStatus";
-import avatar from "../../users/img/atomic.png";
+import avatar from "../img/dude.png";
 
 const ProfileInfo = ({ profile, status, updateStatus }) => {
   if (!profile) {
