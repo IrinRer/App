@@ -1,0 +1,32 @@
+@use "../../style/mixin.scss";
+
+h2 {
+    text-align: center
+}
+
+.changeTheme {
+    @include mixin.border(#8CEB6B, 5px);
+    @include mixin.flex(row, center, center);
+    background-color: #B095FF;
+    border-radius: 4px;
+    margin: auto;
+    padding: 20px;
+    width: 50%;
+    min-height: 200px;
+
+    .buttonDark {
+        @include mixin.button();
+        @include mixin.font(800, 20px);
+        @include mixin.border(white, 3px);
+        background-color: black;
+        color: white;
+        margin-right: 20px
+    }
+
+    .buttonLight {
+        @include mixin.button();
+        @include mixin.font(800, 20px);
+        @include mixin.border(black, 3px);
+        background-color: #FFDC01;
+    }
+}
