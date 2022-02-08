@@ -1,14 +1,11 @@
-import classes from './Post.module.scss';
+import classes from "./Post.module.scss";
 
-const Post = ({post, like}) => {
-    return (
-
-        <div className={classes.new__post}>
-                <img></img>
-                <p>{post}</p>
-                <span>{like}</span>
-        </div>
-    );
-}
+const Post = ({ post }) => {
+  return (
+    <div className={classes.new__post}>
+      <p>{post}</p>
+    </div>
+  );
+};
 
 export default Post;

@@ -1,0 +1,12 @@
+@use "../../../style/mixin.scss";
+
+.new__post {
+    margin-top: 40px;
+    @include mixin.text(#f8baec, 10px);
+    @include mixin.flex(column, center);
+    @include mixin.border(#FE78E3, 3px);
+    p {
+        margin: 0;
+        font-weight: 800;
+    }
+}

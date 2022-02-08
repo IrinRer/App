@@ -5,7 +5,7 @@ import Post from "./post/Post";
 
 const MyPost = ({ dataPost, newPost, addPost, changePost }) => {
   const postElement = dataPost.map((item) => {
-    return <Post post={item.post} like={item.like} key={item.id} />;
+    return <Post post={item.post} key={item.id} />;
   });
 
   const onAddPost = () => {
@@ -32,7 +32,7 @@ const MyPost = ({ dataPost, newPost, addPost, changePost }) => {
       >
         {({ isSubmitting }) => (
           <Form className={classes.create__new__post}>
-            <Field name="post"  as="textarea" />
+            <Field name="post" as="textarea" />
             <button disabled={isSubmitting}>Add post</button>
           </Form>
         )}
@@ -40,11 +40,10 @@ const MyPost = ({ dataPost, newPost, addPost, changePost }) => {
     );
   };
 
-
   return (
     <div className={classes.post}>
       <h2>My posts</h2>
-        <FormText />
+      <FormText />
       {postElement}
     </div>
   );

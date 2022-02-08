@@ -22,8 +22,7 @@ const ProfileStatus = ({ status, updateStatus }) => {
     <>
       {!editMode ? (
         <div>
-          <p>
-            Status:&nbsp;
+          <p>Status:&nbsp;
             <span onClick={() => changeMode()} className={classes.span_status}>
               {status || "No status"}
             </span>

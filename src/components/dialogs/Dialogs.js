@@ -50,8 +50,8 @@ const Dialogs = ({
       >
         {({ isSubmitting }) => (
           <Form className={classes.wrapper__messages__add}>
-            <Field name="message"  as="textarea" />
-            <button disabled={isSubmitting} >Send</button>
+            <Field name="message" as="textarea" />
+            <button disabled={isSubmitting}>Send</button>
           </Form>
         )}
       </Formik>

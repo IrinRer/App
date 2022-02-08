@@ -23,7 +23,7 @@ export const UserApi = {
 
   follow(id) {
     return instance.post(`${baseURL}follow/${id}`);
-  }
+  },
 };
 
 export const ProfileApi = {
@@ -31,7 +31,7 @@ export const ProfileApi = {
     return instance.get(`${baseURL}profile/${id}`).then((response) => {
       return response.data;
     });
-  }, 
+  },
 
   getStatus(id = 2) {
     return instance.get(`${baseURL}profile/status/${id}`).then((response) => {
@@ -40,8 +40,8 @@ export const ProfileApi = {
   },
 
   updateStatus(status) {
-    return instance.put(`${baseURL}profile/status`, {status: status});
-  }
+    return instance.put(`${baseURL}profile/status`, { status: status });
+  },
 };
 
 export const AuthApi = {
@@ -52,10 +52,14 @@ export const AuthApi = {
   },
 
   login(email, password, rememberMe = false) {
-    return instance.post(`${baseURL}auth/login`, {email, password, rememberMe});
+    return instance.post(`${baseURL}auth/login`, {
+      email,
+      password,
+      rememberMe,
+    });
   },
 
   logout() {
     return instance.delete(`${baseURL}auth/login`);
-  }
+  },
 };

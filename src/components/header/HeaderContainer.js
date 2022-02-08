@@ -1,23 +1,22 @@
-import { Component } from "react";
 import { connect } from "react-redux";
 import Header from "./Header";
-import { deleteLogin} from "../../redux/AutoReducer";
+import { deleteLogin } from "../../redux/AutoReducer";
 
-class HeaderContainer extends Component {
-   render() {
-       return (
-         <Header login={this.props.login}
-         isAuth = {this.props.isAuth}
-         deleteLogin={this.props.deleteLogin}/>
-       )
-   }
+const HeaderContainer = (props) => {
+  return (
+    <Header
+      login={props.login}
+      isAuth={props.isAuth}
+      deleteLogin={props.deleteLogin}
+    />
+  );
 };
 
 const mapStateToProps = (state) => {
-    return {
-        login: state.auth.login,
-        isAuth: state.auth.isAuth
-    }
-}
+  return {
+    login: state.auth.login,
+    isAuth: state.auth.isAuth,
+  };
+};
 
-export default connect(mapStateToProps, {deleteLogin})(HeaderContainer); 
+export default connect(mapStateToProps, { deleteLogin })(HeaderContainer);

@@ -1,11 +1,5 @@
 @use "../../../style/mixin.scss";
 
-@mixin status($color: #8CEB6B, $borRad: 4px, $pad: 5px 20px 5px 20px) {
-    background-color: $color;
-    border-radius: $borRad;
-    padding: $pad;
-}
-
 .wrapper {
     padding: 30px 100px 0px 30px;
 
@@ -27,12 +21,12 @@
 
 .span_status {
     @include mixin.border(black, 3px);
-    @include status();
+    @include mixin.text();
 }
 
 .input_status {
     @include mixin.border(black, 3px);
-    @include status();
+    @include mixin.text();
     display: block;
     margin: auto;
 }

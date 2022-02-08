@@ -2,9 +2,9 @@ import { useParams } from "react-router";
 import ProfileContainer from "../Profile/ProfileContainer";
 
 const IdUserProfile = () => {
-    let {id} = useParams();
+    let { id } = useParams();
     return (
-        <ProfileContainer id={id}/>
+        <ProfileContainer id={id} />
     )
 }
 
