@@ -10,7 +10,7 @@ import { initializeApp } from "../../redux/AppReducer";
 import Spinner from "../spinner/Spinner";
 import { useTheme } from "../hook/useTheme";
 
-const Setting = React.lazy(() => import('../setting/Setting'));
+const Setting= React.lazy(() => import('../setting/Setting'));
 const DialogsContainer = React.lazy(() => import('../dialogs/DialogsContainer'));
 const UsersContainer = React.lazy(() => import('../users/UsersContainer'));
 const ProfileContainer = React.lazy(() => import('../Profile/ProfileContainer'));
