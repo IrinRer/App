@@ -19,14 +19,24 @@
     }
 }
 
+.wrapper__status {
+    @include mixin.flex(row, center, center);
+}
+
 .span_status {
     @include mixin.border(black, 3px);
     @include mixin.text();
+    color: black;
+    
+    p {
+        margin: 0;
+    }
 }
 
 .input_status {
     @include mixin.border(black, 3px);
     @include mixin.text();
+    color: black;
     display: block;
     margin: auto;
 }

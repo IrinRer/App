@@ -13,12 +13,14 @@ import Login from "../login/Login";
 import IdUserDialogs from "../idUser/IdUserDialogs";
 import { initializeApp } from "../../redux/AppReducer";
 import Spinner from "../spinner/Spinner";
+import { useTheme } from "../hook/useTheme";
 
 const App = (props) => {
+
+  const {theme, setTheme} = useTheme()
   useEffect(() => {
     props.initializeApp();
   }, []);
-
   if (props.initialized) {
     return (
       <BrowserRouter>

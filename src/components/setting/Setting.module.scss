@@ -1,12 +1,36 @@
 @use "../../style/mixin.scss";
 
+.wrapper {
+    min-height: 500px;
+}
+
+@media screen and (max-width: 650px){
+    .changeTheme{
+        @include mixin.flex(column, center, space-around);
+        margin-bottom: 10px;
+        padding: 20px;
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 651px){
+    .changeTheme{
+        @include mixin.flex(row, center, center);
+        padding: 20px;
+        width: 50%;
+    }
+
+    .buttonDark {
+        margin-right: 20px;
+    }
+}
+
 h2 {
     text-align: center
 }
 
 .changeTheme {
     @include mixin.border(#8CEB6B, 5px);
-    @include mixin.flex(row, center, center);
     background-color: #B095FF;
     border-radius: 4px;
     margin: auto;
@@ -20,7 +44,7 @@ h2 {
         @include mixin.border(white, 3px);
         background-color: black;
         color: white;
-        margin-right: 20px
+        cursor: pointer;
     }
 
     .buttonLight {
@@ -28,5 +52,6 @@ h2 {
         @include mixin.font(800, 20px);
         @include mixin.border(black, 3px);
         background-color: #FFDC01;
+        cursor: pointer;
     }
 }

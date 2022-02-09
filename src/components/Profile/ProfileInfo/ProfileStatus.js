@@ -1,5 +1,6 @@
-import classes from "./ProfileInfo.module.scss";
 import { useState, useEffect } from "react";
+import classes from "./ProfileInfo.module.scss";
+
 
 const ProfileStatus = ({ status, updateStatus }) => {
   const [editMode, setMode] = useState(false);
@@ -21,12 +22,10 @@ const ProfileStatus = ({ status, updateStatus }) => {
   return (
     <>
       {!editMode ? (
-        <div>
-          <p>Status:&nbsp;
-            <span onClick={() => changeMode()} className={classes.span_status}>
-              {status || "No status"}
-            </span>
-          </p>
+        <div className={classes.wrapper__status}>
+          <p>Status:&nbsp;</p>
+          <p onClick={() => changeMode()} className={classes.span_status}>
+            {status || "No status"} </p>
         </div>
       ) : (
         <div>
@@ -35,7 +34,8 @@ const ProfileStatus = ({ status, updateStatus }) => {
             autoFocus={true}
             onBlur={() => changeMode()}
             onChange={(e) => onChangeStatus(e)}
-            className={classes.input_status}/>
+            className={classes.input_status}
+          />
         </div>
       )}
     </>

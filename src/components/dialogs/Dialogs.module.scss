@@ -5,6 +5,10 @@ $back-color1: #faec8f;
 $back-color2: rgb(205, 252, 159);
 $poison: #8ceb6b;
 
+.wrapper {
+  min-height: 500px;
+}
+
 @media screen and (max-width: 850px){
   .wrapper {
     display: block;
@@ -33,7 +37,7 @@ $poison: #8ceb6b;
 
   a {
     text-decoration: none;
-    color: black;
+    color: var(--font-color);
   }
 
 }
@@ -44,6 +48,7 @@ $poison: #8ceb6b;
     @include mixin.flex(row, flex-end);
     span {
       @include mixin.border($yel, 3px);
+      color: black;
       background-color: $back-color1;
       padding: 10px;
       border-radius: 4px;
@@ -56,6 +61,7 @@ $poison: #8ceb6b;
     justify-content: flex-end;
     span {
       @include mixin.border(#8ceb6b, 3px);
+      color: black;
       padding: 10px;
       border-radius: 4px;
       background-color: $back-color2;
@@ -76,20 +82,16 @@ $poison: #8ceb6b;
 
   textarea {
     @include mixin.size(100%, 100px);
-    @include mixin.border(black, 3px);
-    resize: none;
-    border-radius: 4px;
-    font-size: 20px;
+    @include mixin.textarea($font: 20px,$borRad: 4px,$resize: none);
   }
 
   button {
-    @include mixin.border(black, 3px);
+    @include mixin.button($bord: 3px solid black, $rad: 4px);
     display: block;
     margin: 10px auto;
-    width: 60%;
+    width: 80%;
     padding: 1%;
     background-color: $yel;
-    border-radius: 4px;
     font-size: 17px;
   }
 }

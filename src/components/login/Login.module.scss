@@ -1,6 +1,10 @@
 @use "../../style/mixin";
 
 .wrapper {
+    min-height: 500px;
+}
+
+.wrapper__items {
     @include mixin.border(#8CEB6B, 5px);
     @include mixin.flex(column, center);
     background-color: #B095FF;
@@ -8,6 +12,10 @@
     height: 100%;
     margin-top: 40px;
     border-radius: 4px;
+
+    h1 {
+        color: black;
+    }
 }
 
 .login {

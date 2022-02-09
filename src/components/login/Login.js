@@ -39,7 +39,8 @@ const Login = (props) => {
 
   if (!props.isAuth) {
     return (
-      <div className={classes.wrapper}>
+    <div className={classes.wrapper}>
+      <div className={classes.wrapper__items}>
         <h1>Login in</h1>
         <form onSubmit={formik.handleSubmit}>
           <div className={classes.login}>
@@ -87,6 +88,7 @@ const Login = (props) => {
           </div>
         </form>
       </div>
+    </div>
     );
   } else {
     return <Navigate to={"/Profile"} />;
