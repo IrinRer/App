@@ -5,7 +5,7 @@ const CHANGE_NEW_POST = "CHANGE-NEW-POST";
 const SET_PROFILE = "SET_PROFILE";
 const SET_STATUS = "SET_STATUS";
 
-let i = 4;
+let i = 3;
 let initionState = {
   dataPost: [
     { id: 1, post: "its my first post" },
@@ -20,6 +20,7 @@ let initionState = {
 const ProfileReducer = (state = initionState, action) => {
   switch (action.type) {
     case ADD_POST:
+      debugger;
       let newPost = {
         id: ++i,
         post: state.newPost

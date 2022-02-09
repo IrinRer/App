@@ -1,29 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense} from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.scss";
 import Nav from "../nav/Nav";
-import Setting from "../setting/Setting";
-import DialogsContainer from "../dialogs/DialogsContainer";
-import UsersContainer from "../users/UsersContainer";
-import ProfileContainer from "../Profile/ProfileContainer";
 import IdUserProfile from "../idUser/IdUserProfile";
 import HeaderContainer from "../header/HeaderContainer";
-import Login from "../login/Login";
 import IdUserDialogs from "../idUser/IdUserDialogs";
 import { initializeApp } from "../../redux/AppReducer";
 import Spinner from "../spinner/Spinner";
 import { useTheme } from "../hook/useTheme";
 
+const Setting = React.lazy(() => import('../setting/Setting'));
+const DialogsContainer = React.lazy(() => import('../dialogs/DialogsContainer'));
+const UsersContainer = React.lazy(() => import('../users/UsersContainer'));
+const ProfileContainer = React.lazy(() => import('../Profile/ProfileContainer'));
+const Login = React.lazy(() => import('../login/Login'));
+
 const App = (props) => {
 
-  const {theme, setTheme} = useTheme()
+  const {theme, setTheme} = useTheme();
+
   useEffect(() => {
     props.initializeApp();
   }, []);
+
   if (props.initialized) {
     return (
       <BrowserRouter>
+       <Suspense fallback={<Spinner/>}>
         <div className="wrapper">
           <HeaderContainer />
           <div className="wrapper__side">
@@ -42,9 +46,11 @@ const App = (props) => {
             </Routes>
           </div>
         </div>
+        </Suspense>
       </BrowserRouter>
     );
-  } else {
+  }
+   else {
     return <Spinner />;
   }
 };
