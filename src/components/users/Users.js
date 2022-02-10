@@ -50,7 +50,7 @@ const Users = ({
         <input type="text" placeholder="Start typing..." onChange={(e) => setValue(e.target.value)}/> 
       </form>
       {load ? <Spinner/> : element}
-      <button onClick={onChange} className={classes.users_button} disabled={disabled}>
+      <button onClick={() => onChange()} className={classes.users_button} disabled={disabled}>
         Load more
       </button> 
     </>

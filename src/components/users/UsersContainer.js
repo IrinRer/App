@@ -15,7 +15,7 @@ const UsersAPI = (props) => {
 
 const onChange = () => {
     props.getUsersButton(props.offset);
-  };
+};
 
   return (
     <Users
