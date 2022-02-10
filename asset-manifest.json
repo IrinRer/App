@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/App/static/css/main.573448ce.css",
+    "main.js": "/App/static/js/main.8b0ed033.js",
+    "static/css/510.61cc07c1.chunk.css": "/App/static/css/510.61cc07c1.chunk.css",
+    "static/js/510.ef7313b6.chunk.js": "/App/static/js/510.ef7313b6.chunk.js",
+    "static/css/826.1b96940e.chunk.css": "/App/static/css/826.1b96940e.chunk.css",
+    "static/js/826.ceee5fb8.chunk.js": "/App/static/js/826.ceee5fb8.chunk.js",
+    "static/css/117.d49845b9.chunk.css": "/App/static/css/117.d49845b9.chunk.css",
+    "static/js/117.e9387161.chunk.js": "/App/static/js/117.e9387161.chunk.js",
+    "static/js/284.9ff9d26f.chunk.js": "/App/static/js/284.9ff9d26f.chunk.js",
+    "static/media/dude.png": "/App/static/media/dude.e525f04845a032ca7916.png",
+    "static/media/atomic.png": "/App/static/media/atomic.59484dde9a3a2af06cb4.png",
+    "static/media/Logo.svg": "/App/static/media/Logo.d5f64db50c855274f75e0ac6b061be2d.svg",
+    "static/media/spinner.svg": "/App/static/media/spinner.399594f3ce554de8aa32341ce7c2f899.svg",
+    "index.html": "/App/index.html",
+    "static/media/patter.svg": "/App/static/media/patter.ba2e8b608a4d21a463e9.svg",
+    "main.573448ce.css.map": "/App/static/css/main.573448ce.css.map",
+    "main.8b0ed033.js.map": "/App/static/js/main.8b0ed033.js.map",
+    "510.61cc07c1.chunk.css.map": "/App/static/css/510.61cc07c1.chunk.css.map",
+    "510.ef7313b6.chunk.js.map": "/App/static/js/510.ef7313b6.chunk.js.map",
+    "826.1b96940e.chunk.css.map": "/App/static/css/826.1b96940e.chunk.css.map",
+    "826.ceee5fb8.chunk.js.map": "/App/static/js/826.ceee5fb8.chunk.js.map",
+    "117.d49845b9.chunk.css.map": "/App/static/css/117.d49845b9.chunk.css.map",
+    "117.e9387161.chunk.js.map": "/App/static/js/117.e9387161.chunk.js.map",
+    "284.9ff9d26f.chunk.js.map": "/App/static/js/284.9ff9d26f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.573448ce.css",
+    "static/js/main.8b0ed033.js"
+  ]
+}
