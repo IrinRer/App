@@ -26,7 +26,7 @@ const App = (props) => {
 
   if (props.initialized) {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
        <Suspense fallback={<Spinner/>}>
         <div className="wrapper">
           <HeaderContainer />

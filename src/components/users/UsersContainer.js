@@ -13,6 +13,9 @@ const UsersAPI = (props) => {
     props.getUsers(props.offset);
   }, []);
 
+const onChange = () => {
+    props.getUsersButton(props.offset);
+  };
 
   return (
     <Users
@@ -21,7 +24,7 @@ const UsersAPI = (props) => {
       offset={props.offset}
       load={props.load}
       disabled={props.disabled}
-      onChange={props.onChange}
+      onChange={onChange}
       followThunk={props.followThunk}
     />
   );
