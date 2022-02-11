@@ -1,7 +1,7 @@
 @use "../../style/mixin.scss";
 
 .wrapper {
-    min-height: 500px;
+  height: 50ch;
 }
 
 @media screen and (max-width: 650px){

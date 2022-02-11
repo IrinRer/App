@@ -33,3 +33,9 @@ html[data-theme='light'] {
   --color-post: #f8baec;
   --border-post: #FE78E3;
 }
+
+body {
+  background-color: var(--background-color);
+  color: var(--font-color);
+  transition: background-color 200ms linear;
+}

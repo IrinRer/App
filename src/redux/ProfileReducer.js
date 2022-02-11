@@ -8,9 +8,9 @@ const SET_STATUS = "SET_STATUS";
 let i = 3;
 let initionState = {
   dataPost: [
-    { id: 1, post: "its my first post" },
-    { id: 2, post: "so tried" },
-    { id: 3, post: "its interesting" },
+    { id: 1, post: `It's my first post` },
+    { id: 2, post: "The weather is good today" },
+    { id: 3, post: `I'm going to study programming today` },
   ],
   newPost: "",
   profile: null,

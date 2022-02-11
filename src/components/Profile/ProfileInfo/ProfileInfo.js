@@ -9,7 +9,6 @@ const ProfileInfo = ({ profile, status, updateStatus }) => {
   }
   return (
     <div className={classes.wrapper}>
-      <h2>User page</h2>
       {profile.photos.large ? (
         <img
           src={profile.photos.large}

@@ -1,42 +1,38 @@
 @use "../../../style/mixin.scss";
 
 .wrapper {
-    padding: 30px 100px 0px 30px;
+  padding: 30px 100px 0px 30px;
 
-    h2 {
-        text-align: center;
-    }
+  p {
+    @include mixin.font(900, 20px);
+    text-align: center;
+  }
 
-    p {
-        @include mixin.font(900, 20px);
-        text-align: center;
-    }
-
-    .avatar {
-        width: 25%;
-        display: block;
-        margin: auto;
-    }
+  .avatar {
+    width: 25%;
+    display: block;
+    margin: auto;
+  }
 }
 
 .wrapper__status {
-    @include mixin.flex(row, center, center);
+  @include mixin.flex(row, center, center);
 }
 
 .span_status {
-    @include mixin.border(black, 3px);
-    @include mixin.text();
-    color: black;
-    
-    p {
-        margin: 0;
-    }
+  @include mixin.border(black, 3px);
+  @include mixin.text();
+  color: black;
+
+  p {
+    margin: 0;
+  }
 }
 
 .input_status {
-    @include mixin.border(black, 3px);
-    @include mixin.text();
-    color: black;
-    display: block;
-    margin: auto;
+  @include mixin.border(black, 3px);
+  @include mixin.text();
+  color: black;
+  display: block;
+  margin: auto;
 }
