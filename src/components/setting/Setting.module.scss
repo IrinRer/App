@@ -1,57 +1,53 @@
 @use "../../style/mixin.scss";
 
-.wrapper {
-  height: 50ch;
+@media screen and (max-width: 650px) {
+  .changeTheme {
+    @include mixin.flex(column, center, space-around);
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 50%;
+  }
 }
 
-@media screen and (max-width: 650px){
-    .changeTheme{
-        @include mixin.flex(column, center, space-around);
-        margin-bottom: 10px;
-        padding: 20px;
-        width: 50%;
-    }
-}
+@media screen and (min-width: 651px) {
+  .changeTheme {
+    @include mixin.flex(row, center, center);
+    padding: 20px;
+    width: 50%;
+  }
 
-@media screen and (min-width: 651px){
-    .changeTheme{
-        @include mixin.flex(row, center, center);
-        padding: 20px;
-        width: 50%;
-    }
-
-    .buttonDark {
-        margin-right: 20px;
-    }
+  .buttonDark {
+    margin-right: 20px;
+  }
 }
 
 h2 {
-    text-align: center
+  text-align: center;
 }
 
 .changeTheme {
-    @include mixin.border(#8CEB6B, 5px);
-    background-color: #B095FF;
-    border-radius: 4px;
-    margin: auto;
-    padding: 20px;
-    width: 50%;
-    min-height: 200px;
+  @include mixin.border(#8ceb6b, 5px);
+  background-color: #b095ff;
+  border-radius: 4px;
+  margin: auto;
+  padding: 20px;
+  width: 50%;
+  min-height: 200px;
 
-    .buttonDark {
-        @include mixin.button();
-        @include mixin.font(800, 20px);
-        @include mixin.border(white, 3px);
-        background-color: black;
-        color: white;
-        cursor: pointer;
-    }
+  .buttonDark {
+    @include mixin.button();
+    @include mixin.font(800, 20px);
+    @include mixin.border(white, 3px);
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
 
-    .buttonLight {
-        @include mixin.button();
-        @include mixin.font(800, 20px);
-        @include mixin.border(black, 3px);
-        background-color: #FFDC01;
-        cursor: pointer;
-    }
+  .buttonLight {
+    @include mixin.button();
+    @include mixin.font(800, 20px);
+    @include mixin.border(black, 3px);
+    background-color: #ffdc01;
+    cursor: pointer;
+  }
 }

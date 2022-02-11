@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useTheme } from '../hook/useTheme';
 import classes from './Setting.module.scss';
 
