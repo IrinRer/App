@@ -10,8 +10,7 @@ const Login = (props) => {
   const formik = useFormik({
     initialValues: {
       email: "",
-      password: "",
-      rememberMe: false,
+      password: ""
     },
     validationSchema: yup.object({
       email: yup.string().email().required("Required"),
@@ -24,7 +23,6 @@ const Login = (props) => {
       props.setLogin(
         values.email,
         values.password,
-        values.rememberMe,
         action.setStatus
       );
       action.setSubmitting(true);
@@ -72,16 +70,6 @@ const Login = (props) => {
             {formik.status ? (
               <div className={classes.error__mess}>{formik.status.error}</div>
             ) : null}
-
-            <div className={classes.checkbox}>
-              <input
-                type={"checkbox"}
-                name="rememberMe"
-                value={formik.values.rememberMe}
-                onChange={formik.handleChange}
-              />
-              remember me
-            </div>
           </div>
           <div className={classes.button}>
             <button disabled={formik.isSubmitting}>Login</button>
