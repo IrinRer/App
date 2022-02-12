@@ -6,6 +6,7 @@
 4. React-router-dom 6
 5. Redux. Redux-thunk
 6. Working with the API using the Axios client. API - https://social-network.samuraijs.com
+7. Formik and Yup
 
 # Getting Started with Create React App
 
