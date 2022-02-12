@@ -1,3 +1,12 @@
+# The application has implemented
+
+1. React 
+2. Functional components, React-hooks
+3. Modular styles, SASS
+4. React-router-dom 6
+5. Redux. Redux-thunk
+6. Working with the API using the Axios client. API - https://social-network.samuraijs.com
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
