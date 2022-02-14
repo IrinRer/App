@@ -1,4 +1,4 @@
-# The application has implemented
+# Used technologies: 
 
 1. React 
 2. Functional components, React-hooks
